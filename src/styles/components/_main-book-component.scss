@@ -1,0 +1,50 @@
+.main-book-card {
+  height:$main-card-height-inner;
+  width:$main-card-width-inner;
+  background-color:$dark-purple;
+  border-radius:15px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  position:absolute;
+  bottom:0;
+}
+
+.main-book-card_cover {
+  width:100%;
+  height:$main-card-cover-height;
+  background-color:yellow;
+  border-radius:15px 15px 0 0;
+  overflow-clip: true;
+
+}
+
+.main-book-card_cover img {
+  width:100%;
+  height:$main-card-cover-height;
+  border-radius:15px 15px 0 0;
+}
+
+.main-book-card_description {
+  padding-left:1.938rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.main-book-card_description_title {
+  font-family: OpenSans, sans-serif;
+  font-size: $font-size-large;
+  font-weight: 300;
+  font-stretch: condensed;
+  margin:0;
+  color:$white;
+}
+
+.main-book-card_description_author {
+  font-family: Lato, serif;
+  font-size: $font-size-medium;
+  font-weight: normal;
+  color:$white;
+  margin:0;
+
+}
