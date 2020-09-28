@@ -1,0 +1,19 @@
+
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $primary-purple;
+  margin:0;
+  height:4.313rem;
+  margin-bottom:1rem;
+}
+
+.navbar_title {
+  color:#ffffff;
+  font-family: 'Kaushan Script', cursive;
+  font-size: $font-size-extra-large;
+  margin-left:3.563rem;
+}

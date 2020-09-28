@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 
+import MainViewNavbarComponent from "./MainViewNavbarComponent";
+
 /**
  * @class MyReadsMainViewContainer
  * @description Represents the Main View
@@ -10,7 +12,6 @@ class MyReadsMainViewContainer extends Component {
         return (
             <div>
                 <MainViewNavbarComponent/>
-                <MainViewContentContainer/>
             </div>
         )
     }
