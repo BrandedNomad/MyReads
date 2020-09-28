@@ -5,7 +5,7 @@ class BookDisplayMainContainer extends Component {
     render() {
 
         return(
-            <div>
+            <div className="book-display-main-container">
                 Main Display
             </div>
         )
