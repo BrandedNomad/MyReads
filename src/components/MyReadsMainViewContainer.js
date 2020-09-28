@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 
 import MainViewNavbarComponent from "./MainViewNavbarComponent";
+import MainViewContentContainer from "./MainViewContentContainer";
 
 /**
  * @class MyReadsMainViewContainer
@@ -12,6 +13,7 @@ class MyReadsMainViewContainer extends Component {
         return (
             <div>
                 <MainViewNavbarComponent/>
+                <MainViewContentContainer/>
             </div>
         )
     }
