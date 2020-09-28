@@ -8,6 +8,8 @@ class MainViewContentContainer extends Component {
         return (
             <div className="main-view-content-container">
                 <ContentSectionContainer title="Currently Reading" flow="right"/>
+                <ContentSectionContainer title="Want to Read" flow="left"/>
+                <ContentSectionContainer title="Have Read" flow="right"/>
             </div>
         )
     }

@@ -6,9 +6,15 @@
 
 
 .book-display-container-right {
-
   display:flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.book-display-container-left {
+  display:flex;
+  flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: flex-start;
 }
