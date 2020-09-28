@@ -1,0 +1,10 @@
+
+.content-section-right {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height:$content-section-height;
+  width: $content-section-width;
+  background-color:yellow;
+}

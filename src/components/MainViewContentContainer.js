@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 
+import ContentSectionContainer from "./ContentSectionContainer";
+
 class MainViewContentContainer extends Component {
 
     render(){
         return (
             <div className="main-view-content-container">
-                MainViewContent
+                <ContentSectionContainer/>
             </div>
         )
     }
