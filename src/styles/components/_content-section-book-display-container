@@ -7,4 +7,8 @@
 
 .book-display-container-right {
   background-color: #5f007d;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }

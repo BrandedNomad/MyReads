@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import BookDisplaySelectionPanelContainer from "./BookDisplaySelectionPanelContainer";
+import BookDisplayMainContainer from "./BookDisplayMainContainer";
+
 class contentSectionBookDisplayContainer extends Component {
 
     render(){
@@ -8,7 +11,8 @@ class contentSectionBookDisplayContainer extends Component {
 
         return (
             <div className={'book-display-container book-display-container-' + flow}>
-                book display
+                <BookDisplaySelectionPanelContainer/>
+                <BookDisplayMainContainer/>
             </div>
         )
     }
