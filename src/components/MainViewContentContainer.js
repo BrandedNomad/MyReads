@@ -7,7 +7,7 @@ class MainViewContentContainer extends Component {
     render(){
         return (
             <div className="main-view-content-container">
-                <ContentSectionContainer/>
+                <ContentSectionContainer title="Currently Reading" flow="right"/>
             </div>
         )
     }

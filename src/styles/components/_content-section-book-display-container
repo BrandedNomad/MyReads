@@ -1,0 +1,10 @@
+
+.book-display-container {
+  width:$content-section-width;
+  height: $main-card-height-outer;
+}
+
+
+.book-display-container-right {
+  background-color: #5f007d;
+}

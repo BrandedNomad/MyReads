@@ -1,10 +1,17 @@
 
-.content-section-right {
+.content-section {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   height:$content-section-height;
   width: $content-section-width;
   background-color:yellow;
+}
+
+.content-section_title {
+  font-family: 'Lato', sans-serif;
+  font-size:$font-size-large;
+  color:$black;
+  margin:0;
 }

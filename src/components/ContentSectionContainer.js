@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
 
+import ContentSectionBookDisplayContainer from './ContentSectionBookDisplayContainer';
+
 
 class ContentSectionContainer extends Component {
 
-    render(){
-        return (
-            <div className="content-section-right">
 
+
+    render(){
+
+        const {title,flow} =this.props;
+
+        return (
+            <div className="content-section">
+                <p className="content-section_title">{title}</p>
+                <ContentSectionBookDisplayContainer flow={flow}/>
             </div>
         )
     }
