@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/BrandedNomad/MyReads/compare/v0.1.1...v0.1.2) (2020-09-28)
+
+
+### Features
+
+* create MyReadsMainViewContainer ([5c73ae9](https://github.com/BrandedNomad/MyReads/commit/5c73ae983efb281df6ea062739d8ec73fa8f7dab))
+
 ### 0.1.1 (2020-09-25)
 
 
