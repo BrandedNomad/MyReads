@@ -9,12 +9,12 @@ class ContentSectionContainer extends Component {
 
     render(){
 
-        const {title,flow} =this.props;
+        const {title,flow, books} =this.props;
 
         return (
             <div className="content-section">
                 <p className="content-section_title">{title}</p>
-                <ContentSectionBookDisplayContainer flow={flow}/>
+                <ContentSectionBookDisplayContainer flow={flow} books={books}/>
             </div>
         )
     }

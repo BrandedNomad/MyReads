@@ -14,60 +14,6 @@
 
 
 
-.selection-list-item-frame {
-  padding:0.5625rem;
-  margin-right:0.5625rem;
-}
-
-.selection-list-item-card {
-  height:$selections-card-height-inner;
-  width:$selection-card-width-inner;
-  background-color:$dark-purple;
-  border-radius:10px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
-
-.selection-list-item-cover {
-  width:100%;
-  height:$selection-card-cover-height;
-  background-color:yellow;
-  border-radius:10px 10px 0 0;
-  overflow-clip: true;
-
-}
-
-.selection-list-item-cover img {
-  width:$selection-card-width-inner;
-  height:$selection-card-cover-height;
-  border-radius:10px 10px 0 0;
-}
-
-.selection-list-item-description {
-  padding-left:0.5rem;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.selection-list-item-description_title {
-  font-family: OpenSans, sans-serif;
-  font-size: $font-size-small;
-  font-weight: 300;
-  font-stretch: condensed;
-  margin:0;
-  color:$white;
-}
-
-.selection-list-item-description_author {
-  font-family: Lato, serif;
-  font-size: $font-size-extra-small;
-  font-weight: normal;
-  color:$white;
-  margin:0;
-
-}
-
 .pagination-container {
   display:flex;
   flex-direction: row;

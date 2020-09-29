@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import SelectionPanelItemComponent from "./SelectionPanelItemComponent";
+
 const list = [
     {
         cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
@@ -58,27 +60,15 @@ class BookDisplaySelectionPanelContainer extends Component {
 
     render(){
 
+        const {books} = this.props;
+
         return (
             <div className="selection-panel-container">
                 <div>
                     <ul className="selection-list">
-                        {list.map((listItem)=>{
+                        {books.map((book)=>{
                             return (
-                                <div className="selection-list-item-frame">
-                                    <div className="selection-list-item-card">
-                                        <div className="selection-list-item-cover">
-                                            <img
-                                                src={listItem.cover}
-                                            />
-
-                                        </div>
-                                        <div className="selection-list-item-description">
-                                            <p className="selection-list-item-description_title">{listItem.title}</p>
-                                            <p className="selection-list-item-description_author">{listItem.author}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <SelectionPanelItemComponent book={book}/>
                             )
                         })}
                     </ul>

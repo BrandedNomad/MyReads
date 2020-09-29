@@ -7,11 +7,11 @@ class contentSectionBookDisplayContainer extends Component {
 
     render(){
 
-        const {flow} = this.props;
+        const {flow,books} = this.props;
 
         return (
             <div className={'book-display-container book-display-container-' + flow}>
-                <BookDisplaySelectionPanelContainer/>
+                <BookDisplaySelectionPanelContainer books={books}/>
                 <BookDisplayMainContainer/>
             </div>
         )

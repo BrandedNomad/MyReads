@@ -11,10 +11,13 @@ import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
 class MyReadsMainViewContainer extends Component {
 
     render() {
+
+        const bookShelf = this.props.bookShelf
+
         return (
             <div>
                 <MainViewNavbarComponent/>
-                <MainViewContentContainer/>
+                <MainViewContentContainer bookShelf={bookShelf}/>
                 <MainViewSearchButtonComponent/>
             </div>
         )
