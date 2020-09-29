@@ -19,6 +19,7 @@ class App extends Component {
         }
 
         this.shelveBooks = this.shelveBooks.bind(this)
+        this.handleBookSelection = this.handleBookSelection.bind(this);
     }
 
 
@@ -51,7 +52,27 @@ class App extends Component {
             return book.shelf === 'read'
         })
 
+
         return [reading,wantToRead,read]
+    }
+
+    handleBookSelection(id,shelf){
+
+        const updatedlist = this.state.booksAll.map((book)=>{
+
+            if(book.shelf === shelf){
+                if(book.id === id){
+                    book.isSelected = true;
+                } else {
+                    book.isSelected = false;
+                }
+            }
+
+            return book
+        })
+
+        this.setState({booksAll:updatedlist})
+
     }
 
 
@@ -67,6 +88,7 @@ class App extends Component {
                     return  (
                         <MyReadsMainViewContainer
                             bookShelf={bookShelf}
+                            handleBookSelection={this.handleBookSelection}
                         />)
                 }}
             />

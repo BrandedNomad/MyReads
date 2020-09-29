@@ -3,6 +3,13 @@
   margin-right:0.5625rem;
 }
 
+.selection-list-item-frame-selected {
+  padding:0.5625rem;
+  margin-right:0.5625rem;
+  background-color: $light-pink;
+  border-radius:10px;
+}
+
 .selection-list-item-card {
   height:$selections-card-height-inner;
   width:$selection-card-width-inner;
@@ -41,15 +48,16 @@
   font-size: $font-size-extra-small;
   font-weight: 300;
   font-stretch: condensed;
-  margin:0;
+  margin:5px 0 0 0;
   color:$white;
+  font-style: italic;
 }
 
 .selection-list-item-description_author {
   font-family: Lato, serif;
   font-size: $font-size-extra-small;
   font-weight: normal;
-  color:$white;
-  margin:0;
+  color: #c4c4c4;
+  margin:2px 0 0 0;
 
 }

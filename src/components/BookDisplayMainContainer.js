@@ -7,10 +7,12 @@ class BookDisplayMainContainer extends Component {
 
     render() {
 
+        const {book} = this.props
+
         return(
             <div className="book-display-main-container">
                 <MainEditButton/>
-                <MainBookComponent/>
+                <MainBookComponent book={book}/>
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 import SearchViewContentContainer from "./SearchViewContentContainer";
 import SearchViewSearchbarComponent from "./SearchViewSearchbarComponent";
+import ContentSectionContainer from "./ContentSectionContainer";
 
 
 class MyReadsSearchViewContainer extends Component {
@@ -10,7 +11,7 @@ class MyReadsSearchViewContainer extends Component {
         return (
             <div>
                 <SearchViewSearchbarComponent/>
-                <SearchViewContentContainer/>
+
             </div>
         )
     }

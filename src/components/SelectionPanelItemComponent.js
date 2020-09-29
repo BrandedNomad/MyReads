@@ -3,13 +3,27 @@ import React,{Component} from 'react';
 
 class SelectionPanelItemComponent extends Component {
 
+    constructor(props){
+        super(props);
+        this.state={
+            isSelected:false
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick(){
+
+        this.props.handleBookSelection(this.props.book.id,this.props.book.shelf)
+
+    }
+
     render(){
 
-        const {book} = this.props;
+        const {book, handleBookSelection} = this.props;
 
         return(
-            <div className="selection-list-item-frame">
-                <div className="selection-list-item-card">
+            <div className={book.isSelected ? 'selection-list-item-frame-selected':"selection-list-item-frame"}>
+                <div className="selection-list-item-card" onClick={this.handleClick}>
                     <div className="selection-list-item-cover">
                         <img
                             src={book.imageLinks.thumbnail}

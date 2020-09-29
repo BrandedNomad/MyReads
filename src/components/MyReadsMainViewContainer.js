@@ -12,12 +12,12 @@ class MyReadsMainViewContainer extends Component {
 
     render() {
 
-        const bookShelf = this.props.bookShelf
+        const {bookShelf,handleBookSelection} = this.props
 
         return (
             <div>
                 <MainViewNavbarComponent/>
-                <MainViewContentContainer bookShelf={bookShelf}/>
+                <MainViewContentContainer bookShelf={bookShelf} handleBookSelection={handleBookSelection}/>
                 <MainViewSearchButtonComponent/>
             </div>
         )

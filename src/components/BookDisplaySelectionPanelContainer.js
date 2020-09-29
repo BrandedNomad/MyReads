@@ -60,7 +60,11 @@ class BookDisplaySelectionPanelContainer extends Component {
 
     render(){
 
-        const {books} = this.props;
+
+
+        const {books, handleBookSelection} = this.props;
+
+
 
         return (
             <div className="selection-panel-container">
@@ -68,7 +72,12 @@ class BookDisplaySelectionPanelContainer extends Component {
                     <ul className="selection-list">
                         {books.map((book)=>{
                             return (
-                                <SelectionPanelItemComponent book={book}/>
+                                <SelectionPanelItemComponent
+                                    book={book}
+                                    key={book.id}
+                                    handleBookSelection={handleBookSelection}
+
+                                />
                             )
                         })}
                     </ul>
