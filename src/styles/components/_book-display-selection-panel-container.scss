@@ -12,6 +12,8 @@
   align-items: flex-start;
 }
 
+
+
 .selection-list-item-frame {
   padding:0.5625rem;
   margin-right:0.5625rem;
@@ -64,4 +66,11 @@
   color:$white;
   margin:0;
 
+}
+
+.pagination-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:flex-start;
 }

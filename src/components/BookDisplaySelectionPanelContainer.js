@@ -83,6 +83,9 @@ class BookDisplaySelectionPanelContainer extends Component {
                         })}
                     </ul>
                 </div>
+                <div className="pagination-container">
+                    <img src='img/bread-crumbs.png' alt='crumbs'/>
+                </div>
             </div>
         )
     }
