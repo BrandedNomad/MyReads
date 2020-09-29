@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/BrandedNomad/MyReads/compare/v0.1.5...v0.1.6) (2020-09-29)
+
+
+### Features
+
+* add entire search view components and styles ([5679def](https://github.com/BrandedNomad/MyReads/commit/5679def92e1e4582bfa37f2326f65dfa26a6be60))
+
 ### [0.1.5](https://github.com/BrandedNomad/MyReads/compare/v0.1.4...v0.1.5) (2020-09-28)
 
 
