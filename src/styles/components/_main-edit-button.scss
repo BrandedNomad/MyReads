@@ -1,7 +1,33 @@
 
 .main-edit-button {
+  z-index:500;
+}
+
+.main-edit-button_image {
   position:absolute;
   z-index:10;
   top:-15px;
   right:-18px;
+}
+
+.main-edit-button_menu-frame {
+  position:absolute;
+
+  z-index:500;
+  background-color: $dark-pink;
+  height: fit-content;
+  padding:2rem;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.main-edit-button_menu {
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-edit-button_menu button {
+  background:none;
+  border:none;
 }

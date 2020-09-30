@@ -7,11 +7,11 @@ class BookDisplayMainContainer extends Component {
 
     render() {
 
-        const {book} = this.props
+        const {book,shelfId} = this.props
 
         return(
             <div className="book-display-main-container">
-                <MainEditButton/>
+                <MainEditButton book={book} shelfId={shelfId}/>
                 <MainBookComponent book={book}/>
             </div>
         )
