@@ -2,61 +2,9 @@ import React, {Component} from 'react';
 
 import SelectionPanelItemComponent from "./SelectionPanelItemComponent";
 
-const list = [
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    },
-    {
-        cover:"https://prodimage.images-bn.com/pimages/9781982115982_p0_v3_s550x406.jpg",
-        title:"Pet Sematary",
-        author:"Stephen King"
-    }
-]
-
 
 class BookDisplaySelectionPanelContainer extends Component {
+
 
     render(){
 

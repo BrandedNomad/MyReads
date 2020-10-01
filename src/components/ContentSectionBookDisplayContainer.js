@@ -5,6 +5,8 @@ import BookDisplayMainContainer from "./BookDisplayMainContainer";
 
 class contentSectionBookDisplayContainer extends Component {
 
+
+
     render(){
 
         let {flow,books, handleBookSelection, shelfId, handleShelfChange} = this.props;

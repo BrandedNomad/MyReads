@@ -5,6 +5,9 @@ import {Link} from 'react-router-dom';
 class SearchViewSearchbarComponent extends Component {
 
     render() {
+
+        const {handleSearchOnChange, searchValue} = this.props;
+
         return (
             <div className="search-bar">
                 <div className="search-bar_img">
@@ -17,7 +20,7 @@ class SearchViewSearchbarComponent extends Component {
 
                 </div>
                 <div className="search-bar_input">
-                    <input type='text' placeholder='Search by Title or Author'/>
+                    <input type='text' placeholder='Search by Title or Author' value={searchValue} onChange={(e)=>{handleSearchOnChange(e)}}/>
                 </div>
             </div>
         )

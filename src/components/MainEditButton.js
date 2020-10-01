@@ -7,10 +7,9 @@ class MainEditButton extends Component {
         super(props);
         this.state={
             showMenu:false,
-            //checked: ""
+
         }
         this.handleMenuClick = this.handleMenuClick.bind(this)
-        // this.generateMenuContent = this.generateMenuContent.bind(this)
         this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
         this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
 
@@ -26,8 +25,6 @@ class MainEditButton extends Component {
     }
 
     handleMenuItemClick(event){
-
-        console.log("yay", this.props.book.id)
         this.props.handleShelfChange(this.props.book.id,event.target.value)
     }
 
@@ -43,7 +40,7 @@ class MainEditButton extends Component {
 
 
     render(){
-        const {book,shelfId,handleShelfChange} = this.props
+        const {book} = this.props
 
         const menuElementProperties = [
             {

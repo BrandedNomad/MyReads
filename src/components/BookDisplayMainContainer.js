@@ -5,6 +5,7 @@ import MainEditButton from "./MainEditButton";
 
 class BookDisplayMainContainer extends Component {
 
+
     render() {
 
         const {book,shelfId,handleShelfChange} = this.props

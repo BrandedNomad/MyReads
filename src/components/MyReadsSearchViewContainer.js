@@ -7,10 +7,30 @@ import ContentSectionContainer from "./ContentSectionContainer";
 
 class MyReadsSearchViewContainer extends Component {
 
+
+
+
+
+
     render(){
+
+        const {
+            bookShelf,
+            handleBookSelection,
+            handleShelfChange,
+            handleSearchOnChange,
+            searchValue,
+            searchResults
+        } = this.props
+
         return (
             <div>
-                <SearchViewSearchbarComponent/>
+                <SearchViewSearchbarComponent handleSearchOnChange={handleSearchOnChange} searchValue={searchValue}/>
+                <SearchViewContentContainer
+                    bookShelf={bookShelf}
+                    handleBookSelection={handleBookSelection}
+                    handleShelfChange={handleShelfChange}
+                />
 
             </div>
         )

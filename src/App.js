@@ -13,14 +13,19 @@ class App extends Component {
         super(props);
         this.state={
             booksAll:[],
-            booksIdList:[]
+            booksIdList:[],
+            searchValue:"",
+            searchResults:[]
         }
 
         this.shelveBooks = this.shelveBooks.bind(this)
         this.handleBookSelection = this.handleBookSelection.bind(this);
         this.getBooks = this.getBooks.bind(this)
         this.handleShelfChange = this.handleShelfChange.bind(this)
+        this.handleSearchOnChange = this.handleSearchOnChange.bind(this)
     }
+
+
 
 
 
@@ -90,6 +95,37 @@ class App extends Component {
         this.getBooks()
     }
 
+    handleSearchOnChange(event){
+
+        if(event.target.value !== undefined || "" ){
+            this.setState({searchValue:event.target.value})
+
+            try{
+                const searchBooks = async ()=>{
+                    let books = await search(event.target.value);
+                    return books
+                }
+
+                let data = searchBooks()
+
+                data.then((results)=>{
+                    this.setState({searchResults:results})
+                })
+
+            }catch(error){
+                console.log(error)
+
+            }
+
+        }
+
+
+
+
+    }
+
+
+
 
 
   render(){
@@ -111,7 +147,14 @@ class App extends Component {
             <Route
                 exact path='/search'
                 render={()=>{
-                    return  (<MyReadsSearchViewContainer/>)
+                    return  (
+                        <MyReadsSearchViewContainer
+                            bookShelf={this.state.searchResults}
+                            handleBookSelection={this.handleBookSelection}
+                            handleShelfChange={this.handleShelfChange}
+                            handleSearchOnChange={this.handleSearchOnChange}
+                            searchValue={this.state.searchValue}
+                        />)
                 }}
             />
         </div>
