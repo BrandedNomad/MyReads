@@ -14,13 +14,16 @@ class ContentSectionContainer extends Component {
         return (
             <div className="content-section">
                 <p className="content-section_title">{title}</p>
-                <ContentSectionBookDisplayContainer
-                    flow={flow}
-                    books={books}
-                    handleBookSelection={handleBookSelection}
-                    shelfId={shelfId}
-                    handleShelfChange={handleShelfChange}
-                />
+                {books.length > 0 ?
+                    <ContentSectionBookDisplayContainer
+                        flow={flow}
+                        books={books}
+                        handleBookSelection={handleBookSelection}
+                        shelfId={shelfId}
+                        handleShelfChange={handleShelfChange}
+                    />:
+                    <h1>Empty</h1>
+                }
             </div>
         )
     }
