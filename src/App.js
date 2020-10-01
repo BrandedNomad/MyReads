@@ -23,6 +23,7 @@ class App extends Component {
         this.getBooks = this.getBooks.bind(this)
         this.handleShelfChange = this.handleShelfChange.bind(this)
         this.handleSearchOnChange = this.handleSearchOnChange.bind(this)
+        this.handleSearchBookSelection = this.handleSearchBookSelection.bind(this)
     }
 
 
@@ -78,6 +79,23 @@ class App extends Component {
         })
 
         this.setState({booksAll:updatedlist})
+
+    }
+
+    handleSearchBookSelection(id,shelf){
+
+        const updatedlist = this.state.searchResults.map((book)=>{
+
+            if(book.id === id){
+                book.isSelected = true;
+            } else {
+                book.isSelected = false;
+            }
+
+            return book
+        })
+
+        this.setState({searchResults:updatedlist})
 
     }
 
@@ -150,7 +168,7 @@ class App extends Component {
                     return  (
                         <MyReadsSearchViewContainer
                             bookShelf={this.state.searchResults}
-                            handleBookSelection={this.handleBookSelection}
+                            handleBookSelection={this.handleSearchBookSelection}
                             handleShelfChange={this.handleShelfChange}
                             handleSearchOnChange={this.handleSearchOnChange}
                             searchValue={this.state.searchValue}
