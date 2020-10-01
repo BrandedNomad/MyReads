@@ -6,16 +6,17 @@ class MainEditButton extends Component {
     constructor(props){
         super(props);
         this.state={
-            showMenu:false
+            showMenu:false,
+            //checked: ""
         }
-        this.handleClick = this.handleClick.bind(this)
-        this.generateMenuContent = this.handleClick.bind(this)
-
-
+        this.handleMenuClick = this.handleMenuClick.bind(this)
+        // this.generateMenuContent = this.generateMenuContent.bind(this)
+        this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
+        this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
 
     }
 
-    handleClick(){
+    handleMenuClick(){
         this.setState((prevState)=>{
             return {
                 showMenu:!prevState.showMenu
@@ -24,13 +25,25 @@ class MainEditButton extends Component {
 
     }
 
+    handleMenuItemClick(event){
 
+        console.log("yay", this.props.book.id)
+        this.props.handleShelfChange(this.props.book.id,event.target.value)
+    }
+
+    handleCloseMenuOnExit(){
+        this.setState((prevState)=>{
+            return {
+                showMenu:!prevState.showMenu
+            }
+        });
+    }
 
 
 
 
     render(){
-        const {book,shelfId} = this.props
+        const {book,shelfId,handleShelfChange} = this.props
 
         const menuElementProperties = [
             {
@@ -58,30 +71,48 @@ class MainEditButton extends Component {
         return(
             <div className="main-edit-button">
                 <div className="main-edit-button_image">
-                    <img src="./img/edit-button.png" alt="edit" onClick={this.handleClick}/>
+                    <img src="./img/edit-button.png" alt="edit" onClick={this.handleMenuClick}/>
                 </div>
-                {this.state.showMenu && <div className="main-edit-button_menu-frame">
-                    <div className="main-edit-button_menu" onChange={()=>{console.log("button work",shelfId)}}>
+                {this.state.showMenu && <div
+                    className="main-edit-button_menu-frame"
+                    onMouseLeave={this.handleCloseMenuOnExit}
+                >
+                    <div className="main-edit-button_menu" onChange={(e)=>{this.handleMenuItemClick(e)}}>
                         <ul>
                             {
                                 menuElementProperties.map((menuItem,index)=>{
 
                                     return (
-                                        <div key={index}>
+                                        <div  className="menu-item_container" key={index * Math.random() * Math.random() + (0.6782 * Math.random())}>
                                             {book.shelf === menuItem.value ? <input
                                                     type="radio"
                                                     id={menuItem.id}
                                                     name="shelf"
                                                     value={menuItem.value}
+                                                    //checked={this.state.checked === menuItem.value}
                                                     defaultChecked
+                                                    className="menu-item_input"
+                                                    key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
+                                                    //onChange={this.handleMenuItemClick}
+
+
                                                 /> :
                                                 <input
                                                     type="radio"
                                                     id={menuItem.id}
                                                     name="shelf"
                                                     value={menuItem.value}
+                                                    //checked={this.state.checked === menuItem.value}
+                                                    className="menu-item_input"
+                                                    //onChange={this.handleMenuItemClick}
+                                                    key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
                                                 />}
-                                            <label htmlFor={menuItem.id}>{menuItem.text}</label>
+                                            <label
+                                                htmlFor={menuItem.id}
+                                                className="menu-item_label"
+                                            >
+                                                {menuItem.text}
+                                            </label>
                                         </div>
                                     )
                                 })

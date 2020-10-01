@@ -13,20 +13,23 @@ class App extends Component {
         super(props);
         this.state={
             booksAll:[],
-            reading:[],
-            wantToRead:[],
-            read:[]
+            booksIdList:[]
         }
 
         this.shelveBooks = this.shelveBooks.bind(this)
         this.handleBookSelection = this.handleBookSelection.bind(this);
+        this.getBooks = this.getBooks.bind(this)
+        this.handleShelfChange = this.handleShelfChange.bind(this)
     }
 
 
 
     componentDidMount(){
+        this.getBooks();
 
+    }
 
+    getBooks(){
         try{
             getAll()
                 .then((results)=>{
@@ -35,8 +38,6 @@ class App extends Component {
         }catch(e){
             console.log(e)
         }
-
-
     }
 
     shelveBooks(){
@@ -75,6 +76,20 @@ class App extends Component {
 
     }
 
+    handleShelfChange(bookId,shelfId){
+        try{
+            update(bookId,shelfId)
+                .then((results)=>{
+                    this.setState({booksIdList:results})
+                })
+        }catch(error){
+            console.log(error)
+        }
+
+
+        this.getBooks()
+    }
+
 
 
   render(){
@@ -89,6 +104,7 @@ class App extends Component {
                         <MyReadsMainViewContainer
                             bookShelf={bookShelf}
                             handleBookSelection={this.handleBookSelection}
+                            handleShelfChange={this.handleShelfChange}
                         />)
                 }}
             />
