@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/BrandedNomad/MyReads/compare/v0.1.8...v0.1.9) (2020-10-01)
+
+
+### Features
+
+* add drop-down menu for MainEditButtonComponent ([4d1dea6](https://github.com/BrandedNomad/MyReads/commit/4d1dea6822889bd51209cd7888f9ae36fefa9326))
+* add handleShelfChange functionallity ([f8b2ea3](https://github.com/BrandedNomad/MyReads/commit/f8b2ea34b7bcc93fa96623c27f2730d7b3265a49))
+* add search functionallity to the searchbar ([b2e0f9d](https://github.com/BrandedNomad/MyReads/commit/b2e0f9dd0c8e112dcee9234564e27999c1b21d75))
+* add selection functionallity to search book selection panel ([a2c234f](https://github.com/BrandedNomad/MyReads/commit/a2c234fe3c9a365ceb86555efb990bfa1be966d4))
+
 ### [0.1.8](https://github.com/BrandedNomad/MyReads/compare/v0.1.7...v0.1.8) (2020-09-29)
 
 ### [0.1.7](https://github.com/BrandedNomad/MyReads/compare/v0.1.6...v0.1.7) (2020-09-29)
