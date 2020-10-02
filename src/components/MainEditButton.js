@@ -61,7 +61,7 @@ class MainEditButton extends Component {
             {
                 id:"remove-book",
                 value:"none",
-                text:"Remove"
+                text:"None"
             }]
 
 
@@ -86,11 +86,9 @@ class MainEditButton extends Component {
                                                     id={menuItem.id}
                                                     name="shelf"
                                                     value={menuItem.value}
-                                                    //checked={this.state.checked === menuItem.value}
                                                     defaultChecked
                                                     className="menu-item_input"
                                                     key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
-                                                    //onChange={this.handleMenuItemClick}
 
 
                                                 /> :
@@ -99,9 +97,7 @@ class MainEditButton extends Component {
                                                     id={menuItem.id}
                                                     name="shelf"
                                                     value={menuItem.value}
-                                                    //checked={this.state.checked === menuItem.value}
                                                     className="menu-item_input"
-                                                    //onChange={this.handleMenuItemClick}
                                                     key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
                                                 />}
                                             <label
