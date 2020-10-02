@@ -10,14 +10,14 @@ class BookDisplaySelectionPanelContainer extends Component {
 
 
 
-        const {books, handleBookSelection} = this.props;
+        const {books, handleBookSelection, flow} = this.props;
 
 
 
         return (
             <div className="selection-panel-container">
                 <div>
-                    <ul className="selection-list">
+                    <ul className={"selection-list-" + flow}>
                         {books.map((book)=>{
                             return (
                                 <SelectionPanelItemComponent

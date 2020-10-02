@@ -4,13 +4,28 @@
 
 }
 
-.selection-list {
+.selection-list-right {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-inline-end:115px;
+  padding-inline-start:0;
+
+}
+
+.selection-list-left {
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
   justify-content: flex-start;
   align-items: flex-start;
+  padding-inline-start:115px;
+
 }
+
+
 
 
 
