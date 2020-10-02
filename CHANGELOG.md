@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/BrandedNomad/MyReads/compare/v0.1.9...v0.1.10) (2020-10-02)
+
+
+### Features
+
+* add the shelf property to search's drop down menu ([4d87184](https://github.com/BrandedNomad/MyReads/commit/4d871847f2592c2d899238b99881db7c0b36fd0a))
+
 ### [0.1.9](https://github.com/BrandedNomad/MyReads/compare/v0.1.8...v0.1.9) (2020-10-01)
 
 
