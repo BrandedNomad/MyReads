@@ -23,7 +23,9 @@
 .selection-list-item-cover {
   width:100%;
   height:$selection-card-cover-height;
-  background-color:yellow;
+  background-image:url("../../img/ripple-spinner.gif");
+  background-repeat:no-repeat;
+  background-position:center;
   border-radius:10px 10px 0 0;
   overflow-clip: true;
 

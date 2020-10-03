@@ -5,42 +5,48 @@ class MainEditButton extends Component {
 
     constructor(props){
         super(props);
-        this.state={
-            showMenu:false,
-
-        }
-        this.handleMenuClick = this.handleMenuClick.bind(this)
-        this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
-        this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
-
-    }
-
-    handleMenuClick(){
-        this.setState((prevState)=>{
-            return {
-                showMenu:!prevState.showMenu
-            }
-        });
+        // this.state={
+        //     showMenu:false,
+        //
+        // }
+        // this.handleMenuClick = this.handleMenuClick.bind(this)
+        // this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
+        // this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
 
     }
+
+    // handleMenuClick(){
+    //     this.setState((prevState)=>{
+    //         return {
+    //             showMenu:!prevState.showMenu
+    //         }
+    //     });
+    //
+    // }
+    //
+    // handleMenuItemClick(event){
+    //     this.props.handleShelfChange(this.props.book.id,event.target.value)
+    //     this.setState({showMenu:false})
+    // }
+    //
+    // handleCloseMenuOnExit(){
+    //     this.setState((prevState)=>{
+    //         return {
+    //             showMenu:!prevState.showMenu
+    //         }
+    //     });
+    // }
 
     handleMenuItemClick(event){
         this.props.handleShelfChange(this.props.book.id,event.target.value)
-    }
-
-    handleCloseMenuOnExit(){
-        this.setState((prevState)=>{
-            return {
-                showMenu:!prevState.showMenu
-            }
-        });
+        this.props.handleMenuMethods.onExit();
     }
 
 
 
 
     render(){
-        const {book} = this.props
+        const {book,handleMenuMethods} = this.props
 
         const menuElementProperties = [
             {
@@ -68,11 +74,11 @@ class MainEditButton extends Component {
         return(
             <div className="main-edit-button">
                 <div className="main-edit-button_image">
-                    <img src="./img/edit-button.png" alt="edit" onClick={this.handleMenuClick}/>
+                    <img className="x" src="./img/edit-button.png" alt="edit" onClick={handleMenuMethods.onClick}/>
                 </div>
-                {this.state.showMenu && <div
+                {handleMenuMethods.showMenu && <div
                     className="main-edit-button_menu-frame"
-                    onMouseLeave={this.handleCloseMenuOnExit}
+                    onMouseLeave={handleMenuMethods.onExit}
                 >
                     <div className="main-edit-button_menu" onChange={(e)=>{this.handleMenuItemClick(e)}}>
                         <ul>

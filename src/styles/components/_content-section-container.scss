@@ -16,3 +16,18 @@
   color:$black;
   margin:0;
 }
+
+.content-section-empty {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  width:$content-section-width;
+  height:$content-section-height;
+}
+
+.content-section-empty_img {
+  height:300px;
+
+
+}

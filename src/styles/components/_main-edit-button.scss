@@ -10,13 +10,22 @@
   right:-18px;
 }
 
+.x {
+
+}
+
 .main-edit-button_menu-frame {
   position:absolute;
+  top:50px;
+  right:50px;
 
-  z-index:500;
-  background-color: $dark-pink;
+  z-index:9;
+  background-color: $primary-pink;
   height: fit-content;
+  border:1px solid #c4c4c4;
   border-radius: 10px 10px 10px 10px;
+  overflow:hidden;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .main-edit-button_menu {
@@ -29,16 +38,29 @@
   padding:0;
   display:flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .menu-item_container {
   display:flex;
   flex-direction:row;
   justify-content: flex-start;
-  align-items:center;
+  align-items:flex-start;
 
+  width:280px;
+  //border-radius: 10px 10px 10px 10px;
 }
+
+.menu-item_container:hover {
+  background-color: $light-pink;
+}
+
+.menu-item_container:active {
+  background-color:$dark-pink;
+}
+
+
 
 .menu-item_input {
   display:none;
@@ -46,13 +68,20 @@
 
 .menu-item_label {
   font-family: Lato,'sans-serif';
-  font-size: $font-size-small;
+  font-size: $font-size-medium;
   color:white;
-  border:2px solid white;
-  padding:5px;
-  //text-align: center;
+  padding:20px;
+  text-align: center;
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow:2;
+
 
 }
+
+
 
 .menu-item_label::before {
   content:"";
@@ -60,30 +89,20 @@
   border:10px solid white;
   border-radius:50%;
   display:inline-block;
-  width:20px;
-  height:20px
+  width:15px;
+  height:15px;
+  margin-right:10px;
 }
 
-//.menu-item_label::after{
-//  content:"";
-//  background-color:red;
-//  border-radius:50%;
-//  display:inline-block;
-//  height:20px;
-//  width:20px;
-//  position:absolute;
-//  top:15px;
-//  left:15px;
-//  //margin:0 0 0 0;
-//
-//}
 
 .menu-item_input:checked + .menu-item_label{
-  background:black;
+  background:$dark-purple;
+  //border-radius: 10px 10px 10px 10px;
+
 }
 
 .menu-item_input:checked + .menu-item_label:before{
-  background:black;
+  background:$primary-pink;
   border:10px solid white;
 }
 

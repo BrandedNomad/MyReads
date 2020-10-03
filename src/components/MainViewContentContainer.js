@@ -17,6 +17,7 @@ class MainViewContentContainer extends Component {
                     handleBookSelection={handleBookSelection}
                     shelfId="currentlyReading"
                     handleShelfChange={handleShelfChange}
+
                 />
                 <ContentSectionContainer
                     title="Want to Read"
@@ -24,6 +25,7 @@ class MainViewContentContainer extends Component {
                     handleBookSelection={handleBookSelection}
                     shelfId="wantToRead"
                     handleShelfChange={handleShelfChange}
+
                 />
                 <ContentSectionContainer
                     title="Have Read" flow="right"
@@ -31,6 +33,7 @@ class MainViewContentContainer extends Component {
                     handleBookSelection={handleBookSelection}
                     shelfId="read"
                     handleShelfChange={handleShelfChange}
+
                 />
             </div>
         )

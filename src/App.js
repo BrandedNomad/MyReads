@@ -23,7 +23,7 @@ class App extends Component {
             booksIdList:[],
             searchValue:"",
             searchResults:[],
-            bookShelf:[]
+            bookShelf:[],
 
         }
 
@@ -220,6 +220,9 @@ class App extends Component {
 
     }
 
+
+
+
     /**
      * @description Renders the App Component
      * @method
@@ -238,6 +241,7 @@ class App extends Component {
                                 bookShelf={bookShelf}
                                 handleBookSelection={this.handleBookSelection}
                                 handleShelfChange={this.handleShelfChange}
+
                             />)
                     }}
                 />

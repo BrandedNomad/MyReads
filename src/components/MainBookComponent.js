@@ -6,14 +6,27 @@ class MainBookComponent extends Component{
 
         const {book} = this.props
 
+        let displayTitle = "";
+        let longTitleClassName = ""
+        let shortTitleClassName = "main-book-card_description_title"
+        let titleClassName = ""
+
+        if(book.hasOwnProperty('title')){
+            if(book.title.length > 30){
+                longTitleClassName = "main-book-card_description_title-long"
+            }
+        }
+
+        titleClassName = longTitleClassName.length > 0 ? longTitleClassName : shortTitleClassName;
+
+
         return (
             <div className="main-book-card">
                 <div className="main-book-card_cover">
-                    {book.hasOwnProperty('imageLinks') && <img src={book.imageLinks.thumbnail} alt={book.title}/>}
-                    {!book.hasOwnProperty('imageLinks') && <img src={"https://f.ptcdn.info/995/022/000/1409660109-404notfoun-o.png"} alt={book.title}/>}
+                    {<img src={book.hasOwnProperty('imageLinks') ? book.imageLinks.thumbnail : "./img/no-cover.jpg"} alt={book.title}/>}
                 </div>
                 <div className="main-book-card_description">
-                    <p className="main-book-card_description_title">{book.hasOwnProperty('title') ? book.title : ""}</p>
+                    <p className={titleClassName}>{book.hasOwnProperty('title') ? book.title : ""}</p>
                     <p className="main-book-card_description_author">{book.hasOwnProperty('authors') ? book.authors[0] : ''}</p>
                 </div>
 

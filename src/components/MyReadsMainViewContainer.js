@@ -21,6 +21,7 @@ class MyReadsMainViewContainer extends Component {
                     bookShelf={bookShelf}
                     handleBookSelection={handleBookSelection}
                     handleShelfChange={handleShelfChange}
+
                 />
                 <MainViewSearchButtonComponent/>
             </div>

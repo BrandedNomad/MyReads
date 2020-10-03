@@ -11,7 +11,9 @@
 .main-book-card_cover {
   width:100%;
   height:$main-card-cover-height;
-  background-color:yellow;
+  background-image:url("../../img/ripple-spinner.gif");
+  background-repeat:no-repeat;
+  background-position:center;
   border-radius:15px 15px 0 0;
   overflow-clip: true;
 
@@ -34,6 +36,16 @@
 .main-book-card_description_title {
   font-family: OpenSans, sans-serif;
   font-size: $font-size-medium;
+  font-weight: 300;
+  font-stretch: condensed;
+  font-style:italic;
+  margin:5px 0 0 0;
+  color:$white;
+}
+
+.main-book-card_description_title-long {
+  font-family: OpenSans, sans-serif;
+  font-size: $font-size-small;
   font-weight: 300;
   font-stretch: condensed;
   font-style:italic;
