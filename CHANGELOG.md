@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/BrandedNomad/MyReads/compare/v0.1.10...v0.1.11) (2020-10-03)
+
+
+### Bug Fixes
+
+* shortened  the display length of book titles longer than 40 characters. ([9b3b63e](https://github.com/BrandedNomad/MyReads/commit/9b3b63e63e9a8111fcde83197fe86c7c6228b38a))
+
 ### [0.1.10](https://github.com/BrandedNomad/MyReads/compare/v0.1.9...v0.1.10) (2020-10-02)
 
 
