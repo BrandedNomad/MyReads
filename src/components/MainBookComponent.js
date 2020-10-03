@@ -6,7 +6,6 @@ class MainBookComponent extends Component{
 
         const {book} = this.props
 
-        let displayTitle = "";
         let longTitleClassName = ""
         let shortTitleClassName = "main-book-card_description_title"
         let titleClassName = ""

@@ -5,37 +5,8 @@ class MainEditButton extends Component {
 
     constructor(props){
         super(props);
-        // this.state={
-        //     showMenu:false,
-        //
-        // }
-        // this.handleMenuClick = this.handleMenuClick.bind(this)
-        // this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
-        // this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
-
+        this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
     }
-
-    // handleMenuClick(){
-    //     this.setState((prevState)=>{
-    //         return {
-    //             showMenu:!prevState.showMenu
-    //         }
-    //     });
-    //
-    // }
-    //
-    // handleMenuItemClick(event){
-    //     this.props.handleShelfChange(this.props.book.id,event.target.value)
-    //     this.setState({showMenu:false})
-    // }
-    //
-    // handleCloseMenuOnExit(){
-    //     this.setState((prevState)=>{
-    //         return {
-    //             showMenu:!prevState.showMenu
-    //         }
-    //     });
-    // }
 
     handleMenuItemClick(event){
         this.props.handleShelfChange(this.props.book.id,event.target.value)

@@ -19,7 +19,7 @@ class SelectionPanelItemComponent extends Component {
 
     render(){
 
-        const {book, handleBookSelection} = this.props;
+        const {book} = this.props;
         let displayTitle = "";
 
         if(book.hasOwnProperty('title')){

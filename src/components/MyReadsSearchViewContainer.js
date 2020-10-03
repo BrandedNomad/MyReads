@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 
 import SearchViewContentContainer from "./SearchViewContentContainer";
 import SearchViewSearchbarComponent from "./SearchViewSearchbarComponent";
-import ContentSectionContainer from "./ContentSectionContainer";
+
 
 
 class MyReadsSearchViewContainer extends Component {
@@ -20,7 +20,6 @@ class MyReadsSearchViewContainer extends Component {
             handleShelfChange,
             handleSearchOnChange,
             searchValue,
-            searchResults
         } = this.props
 
         return (

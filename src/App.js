@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 
 import MyReadsMainViewContainer from "./components/MyReadsMainViewContainer";
 import MyReadsSearchViewContainer from "./components/MyReadsSearchViewContainer";
-import {get,getAll,update,search} from './utils/BooksAPI'
+import {getAll,update,search} from './utils/BooksAPI'
 
 /**
  *
@@ -33,6 +33,7 @@ class App extends Component {
         this.handleShelfChange = this.handleShelfChange.bind(this)
         this.handleSearchOnChange = this.handleSearchOnChange.bind(this)
         this.handleSearchBookSelection = this.handleSearchBookSelection.bind(this)
+
     }
 
     /**
@@ -48,14 +49,17 @@ class App extends Component {
      * @method
      */
     getBooks(){
+        console.log("4. inside getBooks()")
         try{
             getAll()
                 .then((results)=>{
                     this.setState({booksAll:results})
+                    console.log("5. called setState for booksAll inside getBooks")
                 })
         }catch(e){
             console.log(e)
         }
+
     }
 
     /**
@@ -131,19 +135,23 @@ class App extends Component {
 
     }
 
+
     /**
      * @description Moves books from one shelf to another, by updating the API and retrieving a fresh list of books with updated shelf property
      * @method
      * @param {string} bookId - the book's id
      * @param {string} shelfId - the shelf to which the book will be moved
      */
-    handleShelfChange(bookId,shelfId){
+    async handleShelfChange(bookId,shelfId){
+        console.log("1. inside handleShelfChange method")
 
         //call to BooksAPI to update shelf property
+
         try{
-            update(bookId,shelfId)
+            await update(bookId,shelfId)
                 .then((results)=>{
                     this.setState({booksIdList:results})
+                    console.log("2. updated bookIdList")
                 })
         }catch(error){
             console.log(error)
@@ -151,6 +159,8 @@ class App extends Component {
 
         //retrieves fresh list of books with updated properties
         this.getBooks()
+        console.log("3. just called getBooks() from handleShelfChange()")
+
     }
 
     /**
