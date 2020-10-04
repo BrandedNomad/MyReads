@@ -4,25 +4,22 @@ const a = [{name:"john", id:1234},{name:"joe", id:5678},{name:"joss", id:9101112
 
 const b = [{name:"john",id:1234, shelf:"read"},{name:"joss", id:9101112, shelf:"wantToRead"},]
 
-//retrieve books on shelf
 
 
+const resultsToDisplay = (list)=>{
 
-//Is the book on the shelf
+    let results = new Array(Math.ceil(list.length/2))
+        .fill()
+        .map((_)=>{
+            return list.splice(0,2)
+        })
 
-const x = a.map((book)=>{
+    return results
+}
 
-    b.forEach((shelvedBook)=>{
-        if(shelvedBook.id === book.id){  //book on shelf?
-            book.shelf = shelvedBook.shelf //set its shelf
-        }
-    })
-
-    return book
-
+let x = resultsToDisplay(a)
+let z = x[0].map((item)=>{
+    return item.name
 })
 
-
-
-
-console.log(x)
+console.log(z)
