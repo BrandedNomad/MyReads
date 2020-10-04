@@ -1,15 +1,18 @@
 import React,{Component} from 'react';
 
 
+
+
 class SelectionPanelItemComponent extends Component {
 
     constructor(props){
         super(props);
-        this.state={
-            isSelected:false
-        }
+
+
         this.handleClick = this.handleClick.bind(this)
+
     }
+
 
     handleClick(){
 
@@ -17,9 +20,20 @@ class SelectionPanelItemComponent extends Component {
 
     }
 
+
+
+
+
+
     render(){
 
-        const {book} = this.props;
+        const {
+            book,
+            itemFade,
+            itemId,
+            unFadeItem
+        } = this.props;
+
         let displayTitle = "";
 
         if(book.hasOwnProperty('title')){
@@ -29,20 +43,25 @@ class SelectionPanelItemComponent extends Component {
 
 
 
+
         return(
-            <div className={book.isSelected ? 'selection-list-item-frame-selected':"selection-list-item-frame"}>
-                <div className="selection-list-item-card" onClick={this.handleClick}>
-                    <div className="selection-list-item-cover">
-                        {<img src={book.hasOwnProperty("imageLinks")?book.imageLinks.thumbnail:"./img/no-cover.jpg"} alt={book.title}/>}
-                    </div>
-                    <div className="selection-list-item-description">
-                        <p className="selection-list-item-description_title">{displayTitle} </p>
-                        <p className="selection-list-item-description_author">{book.hasOwnProperty('authors') ? book.authors[0] : ""}</p>
+            <div id={itemId} className={"item-display" + itemFade}>
+                <div className={book.isSelected ? "selection-list-item-frame-selected": "selection-list-item-frame"}>
+                    <div className="selection-list-item-card" onClick={this.handleClick}>
+                        <div className="selection-list-item-cover">
+                            {<img src={book.hasOwnProperty("imageLinks")? book.imageLinks.thumbnail:"./img/no-cover.jpg"} alt={book.title}/>}
+                        </div>
+                        <div className="selection-list-item-description">
+                            <p className="selection-list-item-description_title">{displayTitle} </p>
+                            <p className="selection-list-item-description_author">{book.hasOwnProperty('authors') ? book.authors[0] : ""}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+
 
 export default SelectionPanelItemComponent;

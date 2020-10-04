@@ -11,13 +11,17 @@ class MainEditButton extends Component {
     handleMenuItemClick(event){
         this.props.handleShelfChange(this.props.book.id,event.target.value)
         this.props.handleMenuMethods.onExit();
+        this.props.handleFade()
     }
 
 
 
 
     render(){
-        const {book,handleMenuMethods} = this.props
+        const {
+            book,
+            handleMenuMethods,
+        } = this.props
 
         const menuElementProperties = [
             {
@@ -42,16 +46,25 @@ class MainEditButton extends Component {
             }]
 
 
+
+
         return(
             <div className="main-edit-button">
                 <div className="main-edit-button_image">
                     <img className="x" src="./img/edit-button.png" alt="edit" onClick={handleMenuMethods.onClick}/>
                 </div>
                 {handleMenuMethods.showMenu && <div
-                    className="main-edit-button_menu-frame"
+                    className={"main-edit-button_menu-frame"}
                     onMouseLeave={handleMenuMethods.onExit}
                 >
-                    <div className="main-edit-button_menu" onChange={(e)=>{this.handleMenuItemClick(e)}}>
+                    <div
+                        className="main-edit-button_menu"
+                        onChange={
+                            (e)=>{
+                                this.handleMenuItemClick(e)
+                            }
+
+                        }>
                         <ul>
                             {
                                 menuElementProperties.map((menuItem,index)=>{

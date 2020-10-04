@@ -40,7 +40,14 @@ class ContentSectionContainer extends Component {
 
     render(){
 
-        const {title,flow, books, handleBookSelection, shelfId, handleShelfChange} =this.props;
+        const {
+            title,
+            flow,
+            books,
+            handleBookSelection,
+            shelfId,
+            handleShelfChange,
+        } =this.props;
 
         return (
             <div className="content-section" onMouseLeave={this.handleCloseMenuOnExit}>

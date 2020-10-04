@@ -265,6 +265,7 @@ class App extends Component {
                                 handleShelfChange={this.handleShelfChange}
                                 handleSearchOnChange={this.handleSearchOnChange}
                                 searchValue={this.state.searchValue}
+                                getBooks={this.getBooks}
 
                             />)
                     }}

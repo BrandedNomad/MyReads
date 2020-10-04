@@ -8,11 +8,24 @@ class BookDisplayMainContainer extends Component {
 
     render() {
 
-        const {book,shelfId,handleShelfChange,flow, handleMenuMethods} = this.props
+        const {
+            book,
+            shelfId,
+            handleShelfChange,
+            flow,
+            handleMenuMethods,
+            handleFade,
+        } = this.props
 
         return(
             <div className="book-display-main-container">
-                <MainEditButton book={book} shelfId={shelfId} handleShelfChange={handleShelfChange} handleMenuMethods={handleMenuMethods}/>
+                <MainEditButton
+                    book={book}
+                    shelfId={shelfId}
+                    handleShelfChange={handleShelfChange}
+                    handleMenuMethods={handleMenuMethods}
+                    handleFade={handleFade}
+                />
                 <MainBookComponent book={book} flow={flow}/>
             </div>
         )

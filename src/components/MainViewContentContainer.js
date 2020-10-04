@@ -6,7 +6,11 @@ class MainViewContentContainer extends Component {
 
     render(){
 
-        const {bookShelf, handleBookSelection, handleShelfChange}= this.props;
+        const {
+            bookShelf,
+            handleBookSelection,
+            handleShelfChange
+        }= this.props;
 
         return (
             <div className="main-view-content-container">
