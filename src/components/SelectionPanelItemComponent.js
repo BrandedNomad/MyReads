@@ -29,9 +29,7 @@ class SelectionPanelItemComponent extends Component {
 
         const {
             book,
-            itemFade,
             itemId,
-            unFadeItem
         } = this.props;
 
         let displayTitle = "";
@@ -45,7 +43,7 @@ class SelectionPanelItemComponent extends Component {
 
 
         return(
-            <div id={itemId} className={"item-display" + itemFade}>
+            <div id={itemId} className={"item-display"}>
                 <div className={book.isSelected ? "selection-list-item-frame-selected": "selection-list-item-frame"}>
                     <div className="selection-list-item-card" onClick={this.handleClick}>
                         <div className="selection-list-item-cover">

@@ -11,7 +11,6 @@ class MainEditButton extends Component {
     handleMenuItemClick(event){
         this.props.handleShelfChange(this.props.book.id,event.target.value)
         this.props.handleMenuMethods.onExit();
-        this.props.handleFade()
     }
 
 

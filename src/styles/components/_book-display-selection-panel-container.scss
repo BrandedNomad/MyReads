@@ -36,6 +36,13 @@
   align-items:flex-start;
 }
 
+.pagination-list {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+
 .pagination-list_item {
   margin:10px;
   color:$dark-pink;

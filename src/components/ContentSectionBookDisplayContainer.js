@@ -5,38 +5,6 @@ import BookDisplayMainContainer from "./BookDisplayMainContainer";
 
 class contentSectionBookDisplayContainer extends Component {
 
-    constructor(props){
-        super(props);
-        this.state={
-            fade:""
-        }
-
-        this.fadeItem = this.fadeItem.bind(this)
-        this.unFadeItem = this.unFadeItem.bind(this)
-    }
-
-    static getDerivedStateFromProps(props,state){
-        if(state.fade === "-fade"){
-            return {
-                fade:""
-            }
-        }
-
-        return null;
-    }
-
-    fadeItem(){
-        this.setState(()=>{
-            return {fade:"-fade"}
-        })
-    }
-
-    unFadeItem(){
-        this.setState(()=>{
-            return {fade:""}
-        })
-    }
-
 
 
 
@@ -54,6 +22,7 @@ class contentSectionBookDisplayContainer extends Component {
         let isSelected = books.every((book)=>{
             return book.isSelected === false || book.isSelected === undefined;
         })
+
 
         if(isSelected){
             books = books.map((book,i)=>{
@@ -75,8 +44,6 @@ class contentSectionBookDisplayContainer extends Component {
                     books={books}
                     handleBookSelection={handleBookSelection}
                     flow={flow}
-                    itemFade={this.state.fade}
-                    unFadeItem = {this.unFadeItem}
                 />
                 <BookDisplayMainContainer
                     book={mainBook}
@@ -84,7 +51,6 @@ class contentSectionBookDisplayContainer extends Component {
                     handleShelfChange={handleShelfChange}
                     flow={flow}
                     handleMenuMethods={handleMenuMethods}
-                    handleFade={this.fadeItem}
             />
             </div>
         )

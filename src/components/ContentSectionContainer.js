@@ -12,7 +12,6 @@ class ContentSectionContainer extends Component {
         }
         this.handleMenuClick = this.handleMenuClick.bind(this)
         this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
-        this.handleMenuClick = this.handleMenuClick.bind(this)
     }
 
     handleMenuClick(){
@@ -23,11 +22,6 @@ class ContentSectionContainer extends Component {
         });
 
     }
-
-    // handleMenuItemClick(event){
-    //     this.props.handleShelfChange(this.props.book.id,event.target.value)
-    //     this.setState({showMenu:false})
-    // }
 
     handleCloseMenuOnExit(){
         this.setState((prevState)=>{

@@ -16,7 +16,6 @@ class MyReadsMainViewContainer extends Component {
             bookShelf,
             handleBookSelection,
             handleShelfChange,
-            getBooks
         } = this.props
 
         return (

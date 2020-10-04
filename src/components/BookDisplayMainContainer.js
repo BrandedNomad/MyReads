@@ -14,7 +14,6 @@ class BookDisplayMainContainer extends Component {
             handleShelfChange,
             flow,
             handleMenuMethods,
-            handleFade,
         } = this.props
 
         return(
@@ -24,7 +23,6 @@ class BookDisplayMainContainer extends Component {
                     shelfId={shelfId}
                     handleShelfChange={handleShelfChange}
                     handleMenuMethods={handleMenuMethods}
-                    handleFade={handleFade}
                 />
                 <MainBookComponent book={book} flow={flow}/>
             </div>

@@ -49,12 +49,10 @@ class App extends Component {
      * @method
      */
     getBooks(){
-        console.log("4. inside getBooks()")
         try{
             getAll()
-                .then((results)=>{
-                    this.setState({booksAll:results})
-                    console.log("5. called setState for booksAll inside getBooks")
+                .then(async (results)=>{
+                    await this.setState({booksAll:results})
                 })
         }catch(e){
             console.log(e)
@@ -143,15 +141,12 @@ class App extends Component {
      * @param {string} shelfId - the shelf to which the book will be moved
      */
     async handleShelfChange(bookId,shelfId){
-        console.log("1. inside handleShelfChange method")
-
         //call to BooksAPI to update shelf property
 
         try{
             await update(bookId,shelfId)
-                .then((results)=>{
-                    this.setState({booksIdList:results})
-                    console.log("2. updated bookIdList")
+                .then(async (results)=>{
+                    await this.setState({booksIdList:results})
                 })
         }catch(error){
             console.log(error)
@@ -159,7 +154,6 @@ class App extends Component {
 
         //retrieves fresh list of books with updated properties
         this.getBooks()
-        console.log("3. just called getBooks() from handleShelfChange()")
 
     }
 
@@ -229,6 +223,8 @@ class App extends Component {
         }
 
     }
+
+
 
 
 
