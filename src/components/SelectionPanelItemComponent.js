@@ -1,30 +1,36 @@
 import React,{Component} from 'react';
 
 
-
-
+/**
+ * @description Represents an individual book in the book selection-panel
+ * @class
+ */
 class SelectionPanelItemComponent extends Component {
 
+    /**
+     * @description Initializes state and binds methods to component
+     * @constructor
+     * @param {object} props
+     */
     constructor(props){
         super(props);
-
-
         this.handleClick = this.handleClick.bind(this)
-
     }
 
 
+    /**
+     * @description High-lights the selected book when clicked on
+     * @method
+     */
     handleClick(){
-
         this.props.handleBookSelection(this.props.book.id,this.props.book.shelf)
-
     }
 
-
-
-
-
-
+    /**
+     * @description Renders SelectionPanelItemComponent
+     * @method
+     * @returns {JSX.Element} component
+     */
     render(){
 
         const {
@@ -34,13 +40,10 @@ class SelectionPanelItemComponent extends Component {
 
         let displayTitle = "";
 
+        //Shortens the length of book titles that are longer than 50 characters, so they can fit on the card
         if(book.hasOwnProperty('title')){
             displayTitle = book.title.length < 50 ? book.title : book.title.slice(0,40) + "..."
         }
-
-
-
-
 
         return(
             <div id={itemId} className={"item-display"}>
@@ -59,7 +62,5 @@ class SelectionPanelItemComponent extends Component {
         )
     }
 }
-
-
 
 export default SelectionPanelItemComponent;

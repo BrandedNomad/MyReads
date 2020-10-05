@@ -1,21 +1,36 @@
 import React, {Component} from 'react';
 
-
+/**
+ * @description Represents the Edit button on the Main book view
+ * @class
+ */
 class MainEditButton extends Component {
 
+    /**
+     * @description Initializes state and binds function to component
+     * @constructor
+     * @param {object} props
+     */
     constructor(props){
         super(props);
         this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
     }
 
+    /**
+     * @description updates a book's shelf by calling handleShelfChange
+     * @method
+     * @param {object} event
+     */
     handleMenuItemClick(event){
         this.props.handleShelfChange(this.props.book.id,event.target.value)
         this.props.handleMenuMethods.onExit();
     }
 
-
-
-
+    /**
+     * @description Renders the MainEditButton component
+     * @method
+     * @returns {JSX.Element} component
+     */
     render(){
         const {
             book,
@@ -78,8 +93,6 @@ class MainEditButton extends Component {
                                                     defaultChecked
                                                     className="menu-item_input"
                                                     key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
-
-
                                                 /> :
                                                 <input
                                                     type="radio"

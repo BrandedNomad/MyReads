@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
-
 import BookDisplaySelectionPanelContainer from "./BookDisplaySelectionPanelContainer";
 import BookDisplayMainContainer from "./BookDisplayMainContainer";
 
-class contentSectionBookDisplayContainer extends Component {
+/**
+ * @description Represents the book display of the Content Section
+ * @class
+ */
+class ContentSectionBookDisplayContainer extends Component {
 
 
-
-
+    /**
+     * @description Renders the C
+     * @returns {JSX.Element}
+     */
     render(){
 
         let {
@@ -57,4 +62,4 @@ class contentSectionBookDisplayContainer extends Component {
     }
 }
 
-export default contentSectionBookDisplayContainer;
+export default ContentSectionBookDisplayContainer;

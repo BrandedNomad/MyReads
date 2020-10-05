@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-
+/**
+ * @description Represents the search-bar on the search-view page
+ * @class
+ */
 class SearchViewSearchbarComponent extends Component {
 
+    /**
+     * @description Renders the SearchViewSearchbarComponent
+     * @method
+     * @returns {JSX.Element} component
+     */
     render() {
 
         const {handleSearchOnChange, searchValue} = this.props;

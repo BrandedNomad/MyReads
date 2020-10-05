@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 
+/**
+ * @description Represents the selected book in the main book view
+ * @class
+ */
 class MainBookComponent extends Component{
 
+    /**
+     * @description Renders the MainBookComponent
+     * @returns {JSX.Element} component
+     */
     render(){
 
         const {book} = this.props
@@ -9,7 +17,11 @@ class MainBookComponent extends Component{
         let longTitleClassName = ""
         let shortTitleClassName = "main-book-card_description_title"
         let titleClassName = ""
+        let manyAuthorsClassName=""
+        let oneAuthorClassName="main-book-card_description_author"
+        let authorClassName
 
+        //Changes the text size of long book titles so that they fit in the car
         if(book.hasOwnProperty('title')){
             if(book.title.length > 30){
                 longTitleClassName = "main-book-card_description_title-long"
@@ -17,6 +29,14 @@ class MainBookComponent extends Component{
         }
 
         titleClassName = longTitleClassName.length > 0 ? longTitleClassName : shortTitleClassName;
+
+        if(book.hasOwnProperty('authors')){
+            if(book.authors.length > 1){
+                manyAuthorsClassName = "main-book-card_description_author-many"
+            }
+        }
+
+        authorClassName = manyAuthorsClassName.length > 0 ? manyAuthorsClassName : oneAuthorClassName;
 
 
         return (
@@ -26,7 +46,14 @@ class MainBookComponent extends Component{
                 </div>
                 <div className="main-book-card_description">
                     <p className={titleClassName}>{book.hasOwnProperty('title') ? book.title : ""}</p>
-                    <p className="main-book-card_description_author">{book.hasOwnProperty('authors') ? book.authors[0] : ''}</p>
+                    <ul className="author-list">
+                        {book.hasOwnProperty('authors') ? book.authors.map((author)=>{
+                            return (<p className={authorClassName}>
+                                {author}
+                            </p>)
+                        }):""}
+                    </ul>
+
                 </div>
 
             </div>

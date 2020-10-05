@@ -2,9 +2,17 @@ import React, {Component} from 'react';
 
 import ContentSectionBookDisplayContainer from './ContentSectionBookDisplayContainer';
 
-
+/**
+ * @description Represents the content section where content is displayed
+ * @class
+ */
 class ContentSectionContainer extends Component {
 
+    /**
+     * @description Initializes state and binds functions to component
+     * @method
+     * @param props
+     */
     constructor(props){
         super(props);
         this.state={
@@ -14,6 +22,10 @@ class ContentSectionContainer extends Component {
         this.handleCloseMenuOnExit = this.handleCloseMenuOnExit.bind(this)
     }
 
+    /**
+     * @description Opens and closes the drop down menu by toggling the showMenu state
+     * @method
+     */
     handleMenuClick(){
         this.setState((prevState)=>{
             return {
@@ -23,6 +35,10 @@ class ContentSectionContainer extends Component {
 
     }
 
+    /**
+     * @description Closes the drop-down menu on mouse exit by setting showMenu to false
+     * @method
+     */
     handleCloseMenuOnExit(){
         this.setState((prevState)=>{
             return {
@@ -32,6 +48,11 @@ class ContentSectionContainer extends Component {
     }
 
 
+    /**
+     * @description Renders the Content Section container. If no content, renders an image instead
+     * @method
+     * @returns {JSX.Element} component
+     */
     render(){
 
         const {
@@ -55,7 +76,6 @@ class ContentSectionContainer extends Component {
                         handleShelfChange={handleShelfChange}
                         handleMenuMethods={{
                             onClick:this.handleMenuClick,
-                            onItemClick:this.handleMenuItemClick,
                             onExit:this.handleCloseMenuOnExit,
                             showMenu:this.state.showMenu
 

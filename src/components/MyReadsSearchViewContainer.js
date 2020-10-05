@@ -4,14 +4,17 @@ import SearchViewContentContainer from "./SearchViewContentContainer";
 import SearchViewSearchbarComponent from "./SearchViewSearchbarComponent";
 
 
-
+/**
+ * @description Represents the Search-View page
+ * @class
+ */
 class MyReadsSearchViewContainer extends Component {
 
-
-
-
-
-
+    /**
+     * @description Renders the MyReadsSearchViewContainer
+     * @method
+     * @returns {JSX.Element} component
+     */
     render(){
 
         const {

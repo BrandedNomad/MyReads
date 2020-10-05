@@ -5,11 +5,17 @@ import MainViewContentContainer from "./MainViewContentContainer";
 import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
 
 /**
+ *
+ * @description Represents the MainView page
  * @class MyReadsMainViewContainer
- * @description Represents the Main View
  */
 class MyReadsMainViewContainer extends Component {
 
+    /**
+     * @description Renders the MyReadsMainViewContainer
+     * @method
+     * @returns {JSX.Element} component
+     */
     render() {
 
         const {

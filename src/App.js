@@ -37,7 +37,7 @@ class App extends Component {
     }
 
     /**
-     * @description componentDidMount calls getBooks after initial mount
+     * @description componentDidMount calls getBooks after initial mount which populates screen with books.
      * @method
      */
     componentDidMount(){
@@ -66,26 +66,26 @@ class App extends Component {
      * @returns {Array} books sorted into shelves
      */
     shelveBooks(){
+        //Currently Reading shelf
         const reading = this.state.booksAll.filter((book)=>{
             return book.shelf === 'currentlyReading'
         })
 
+        //Want to Read shelf
         const wantToRead = this.state.booksAll.filter((book)=>{
             return book.shelf === 'wantToRead'
         })
 
+        //Have Read shelf
         const read = this.state.booksAll.filter((book)=>{
             return book.shelf === 'read'
         })
 
-        const bookShelf = [reading, wantToRead, read]
-
-
-        return bookShelf;
+        return [reading, wantToRead, read];
     }
 
     /**
-     * @description Highlights selected book from book selection pane with a pink border
+     * @description Highlights selected book from book selection pane with a pink border when clicked on
      * @method
      * @param {string} id - the id of the book
      * @param {string} shelf - the book's current shelf
@@ -142,7 +142,6 @@ class App extends Component {
      */
     async handleShelfChange(bookId,shelfId){
         //call to BooksAPI to update shelf property
-
         try{
             await update(bookId,shelfId)
                 .then(async (results)=>{
@@ -154,7 +153,6 @@ class App extends Component {
 
         //retrieves fresh list of books with updated properties
         this.getBooks()
-
     }
 
     /**
@@ -219,13 +217,9 @@ class App extends Component {
             }
 
 
-
         }
 
     }
-
-
-
 
 
 
@@ -247,7 +241,6 @@ class App extends Component {
                                 bookShelf={bookShelf}
                                 handleBookSelection={this.handleBookSelection}
                                 handleShelfChange={this.handleShelfChange}
-
                             />)
                     }}
                 />
@@ -269,7 +262,6 @@ class App extends Component {
             </div>
         );
       }
-
 }
 
 export default App;
