@@ -1,7 +1,7 @@
-#MyReads
+# MyReads
 **My reads** is a reading tracking web application, that allows you to track the books you are **currently reading**, **want to read**, and already **have read**. It also allows you to search for new books and add them to your bookshelf.
 
-##Install
+## Install
 
 1.Clone the repo
 
@@ -21,10 +21,10 @@
 
 5.Navigate to http://localhost:3000/ in your browser window.
 
-##Contributing
+## Contributing
 
 Currently not accepting any contributions.
 
-##License
+## License
 
 MyReads is licensed as MIT
