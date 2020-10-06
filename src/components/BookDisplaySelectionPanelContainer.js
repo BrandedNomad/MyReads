@@ -6,9 +6,6 @@ import SelectionPanelItemComponent from "./SelectionPanelItemComponent";
 
 class BookDisplaySelectionPanelContainer extends Component {
 
-
-
-
     render(){
 
         const {

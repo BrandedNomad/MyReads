@@ -34,6 +34,16 @@ class App extends Component {
         this.handleSearchOnChange = this.handleSearchOnChange.bind(this)
         this.handleSearchBookSelection = this.handleSearchBookSelection.bind(this)
 
+
+    }
+
+    static getDerivedStateFromProps(nextState,prevState){
+        if(nextState.searchResults !== undefined && nextState.searchResults.length === 0){
+            return {
+                searchResults:nextState.searchResults
+            }
+        }
+        return null
     }
 
     /**
@@ -146,14 +156,16 @@ class App extends Component {
             await update(bookId,shelfId)
                 .then(async (results)=>{
                     await this.setState({booksIdList:results})
+                    //retrieves fresh list of books with updated properties
+                    this.getBooks()
                 })
         }catch(error){
             console.log(error)
         }
 
-        //retrieves fresh list of books with updated properties
-        this.getBooks()
+
     }
+
 
     /**
      * @description Updates the searchResults state and controls what is displayed in the search field
@@ -161,62 +173,54 @@ class App extends Component {
      * @param {Object} event
      */
     handleSearchOnChange(event){
+        //Sets value to display in Search bar
+        this.setState({searchValue:event.target.value})
 
-        //sets the value for the form to the value of query
-        if(event.target.value !== undefined){
-            this.setState({searchValue:event.target.value})
-
-            if(event.target.value.length > 0){
-                //searches API for books related to the query
-                try{
-                    const searchBooks = async ()=>{
-                        let books = await search(event.target.value);
-                        return books
-                    }
-
-                    let data = searchBooks()
-
-                    data.then((results)=>{
-
-                        //updates the search results shelf property so that is current shelf
-                        //is displayed in the drop down menu.
-                        if(results !== undefined ){
-                            console.log(results)
-                            const updatedResults = results.map((book)=>{
-
-                                this.state.booksAll.forEach((shelvedBook)=>{
-                                    if(shelvedBook.id === book.id){  //book on shelf?
-                                        book.shelf = shelvedBook.shelf //set its shelf
-                                    }
-                                })
-
-                                if(book.shelf === undefined){
-                                    book.shelf = 'none'
-                                }
-
-                                return book
-
-                            })
-
-                            //sets the search result state
-                            this.setState({searchResults:updatedResults})
-                        } else {
-                            this.setState({searchResults:[]})
-                        }
-
-                    }).catch((error)=>{
-                        console.log(error)
-                    })
-
-                }catch(error){
-                    console.log(error)
-
-                }
-            } else {
-                this.setState({searchResults:[]})
+        //searches API for books related to the query
+        try{
+            const searchBooks = async ()=>{
+                let books = await search(event.target.value);
+                return books
             }
 
+            let data = searchBooks()
 
+            data.then((results)=>{
+
+                //updates the search results shelf property so that is current shelf
+                //is displayed in the drop down menu.
+                if(results !== undefined ){
+                    const updatedResults = results.map((book)=>{
+
+                        this.state.booksAll.forEach((shelvedBook)=>{
+                            if(shelvedBook.id === book.id){  //book on shelf?
+                                book.shelf = shelvedBook.shelf //set its shelf
+                            }
+                        })
+
+                        if(book.shelf === undefined){
+                            book.shelf = 'none'
+                        }
+
+                        return book
+
+                    })
+
+                    //sets the search result state
+                    this.setState({searchResults:updatedResults})
+                } else {
+                    this.setState(()=>{
+                        return {searchResults:[],
+                            searchValue:""}
+                    })
+                }
+
+            }).catch((error)=>{
+                console.log(error)
+            })
+
+        }catch(error){
+            console.log(error)
         }
 
     }
