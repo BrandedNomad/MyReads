@@ -193,7 +193,8 @@ class App extends Component {
 
                 //updates the search results shelf property so that is current shelf
                 //is displayed in the drop down menu.
-                if(!results.error){
+                if(!results.error && results !== ""){
+
                     const updatedResults = results.map((book)=>{
 
                         this.state.booksAll.forEach((shelvedBook)=>{
@@ -209,13 +210,23 @@ class App extends Component {
                         return book
 
                     })
-
                     //sets the search result state
-                    this.setState({searchResults:updatedResults})
+                    const setStateSync = (stateUpdate)=>{
+                        return new Promise((resolve)=>{
+                            this.setState(stateUpdate,()=>{resolve()})
+                        })
+                    }
+
+                    const foo = async ()=>{
+                        await setStateSync({searchResults:updatedResults})
+                    }
+
+                    foo();
+
+                    //this.setState({searchResults:updatedResults})
                 } else {
                     this.setState(()=>{
-                        return {searchResults:[],
-                            searchValue:""}
+                        return {searchResults:[]} //removed the searchValue:""
                     })
                 }
 
