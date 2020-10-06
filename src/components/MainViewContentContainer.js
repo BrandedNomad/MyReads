@@ -21,30 +21,28 @@ class MainViewContentContainer extends Component {
             handleShelfChange
         }= this.props;
 
+        const containers = [
+            ['Currently Reading','right','currentlyReading'],
+            ['Want to Read','left', 'wantToRead'],
+            ['Have Read','right','read']
+        ]
+
+
         return (
             <div className="main-view-content-container">
-                <ContentSectionContainer
-                    title="Currently Reading"
-                    flow="right"
-                    books={bookShelf[0]}
-                    handleBookSelection={handleBookSelection}
-                    shelfId="currentlyReading"
-                    handleShelfChange={handleShelfChange}
-                />
-                <ContentSectionContainer
-                    title="Want to Read"
-                    flow="left" books={bookShelf[1]}
-                    handleBookSelection={handleBookSelection}
-                    shelfId="wantToRead"
-                    handleShelfChange={handleShelfChange}
-                />
-                <ContentSectionContainer
-                    title="Have Read" flow="right"
-                    books={bookShelf[2]}
-                    handleBookSelection={handleBookSelection}
-                    shelfId="read"
-                    handleShelfChange={handleShelfChange}
-                />
+                <ul className="main-view-content-container_ul">
+                    {containers.map((container,i)=>{
+                        return (<ContentSectionContainer
+                            title={container[0]}
+                            flow={container[1]}
+                            books={bookShelf[i]}
+                            handleBookSelection={handleBookSelection}
+                            shelfId={container[2]}
+                            handleShelfChange={handleShelfChange}
+                            key={container[2]}
+                        />)
+                    })}
+                </ul>
             </div>
         )
     }

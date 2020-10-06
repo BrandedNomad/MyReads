@@ -48,7 +48,7 @@ class MainBookComponent extends Component{
                     <p className={titleClassName}>{book.hasOwnProperty('title') ? book.title : ""}</p>
                     <ul className="author-list">
                         {book.hasOwnProperty('authors') ? book.authors.map((author)=>{
-                            return (<p className={authorClassName}>
+                            return (<p className={authorClassName} key={author + Math.random()}>
                                 {author}
                             </p>)
                         }):""}
