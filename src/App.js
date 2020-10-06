@@ -155,16 +155,15 @@ class App extends Component {
     async handleShelfChange(bookId,shelfId){
         //call to BooksAPI to update shelf property
         try{
-            await update(bookId,shelfId)
-                .then(async (results)=>{
-                    await this.setState({booksIdList:results})
-                    //retrieves fresh list of books with updated properties
-                    this.getBooks()
-                })
+            let results = await update(bookId,shelfId)
+
+            this.setState({booksIdLIst:results},()=>{
+                this.getBooks()
+            })
+
         }catch(error){
             console.log(error)
         }
-
 
     }
 
@@ -185,13 +184,16 @@ class App extends Component {
                 return books
             }
 
+
             let data = searchBooks()
 
             data.then((results)=>{
 
+
+
                 //updates the search results shelf property so that is current shelf
                 //is displayed in the drop down menu.
-                if(results !== undefined ){
+                if(!results.error){
                     const updatedResults = results.map((book)=>{
 
                         this.state.booksAll.forEach((shelvedBook)=>{
