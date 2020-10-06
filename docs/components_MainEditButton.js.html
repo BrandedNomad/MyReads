@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/MainEditButton.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/MainEditButton.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+
+/**
+ * @description Represents the Edit button on the Main book view
+ * @class
+ */
+class MainEditButton extends Component {
+
+    /**
+     * @description Initializes state and binds function to component
+     * @constructor
+     * @param {object} props
+     */
+    constructor(props){
+        super(props);
+        this.handleMenuItemClick = this.handleMenuItemClick.bind(this)
+    }
+
+    /**
+     * @description updates a book's shelf by calling handleShelfChange
+     * @method
+     * @param {object} event
+     */
+    handleMenuItemClick(event){
+        this.props.handleShelfChange(this.props.book.id,event.target.value)
+        this.props.handleMenuMethods.onExit();
+    }
+
+    /**
+     * @description Renders the MainEditButton component
+     * @method
+     * @returns {JSX.Element} component
+     */
+    render(){
+        const {
+            book,
+            handleMenuMethods,
+        } = this.props
+
+        const menuElementProperties = [
+            {
+                id:"currently-reading",
+                value:"currentlyReading",
+                text:"Currently Reading"
+            },
+            {
+                id:"want-to-read",
+                value:"wantToRead",
+                text:"Want to Read"
+            },
+            {
+                id:"read",
+                value:"read",
+                text:"Read"
+            },
+            {
+                id:"remove-book",
+                value:"none",
+                text:"None"
+            }]
+
+
+
+
+        return(
+            &lt;div className="main-edit-button">
+                &lt;div className="main-edit-button_image">
+                    &lt;img className="x" src="./img/edit-button.png" alt="edit" onClick={handleMenuMethods.onClick}/>
+                &lt;/div>
+                {handleMenuMethods.showMenu &amp;&amp; &lt;div
+                    className={"main-edit-button_menu-frame"}
+                    onMouseLeave={handleMenuMethods.onExit}
+                >
+                    &lt;div
+                        className="main-edit-button_menu"
+                        onChange={
+                            (e)=>{
+                                this.handleMenuItemClick(e)
+                            }
+
+                        }>
+                        &lt;ul>
+                            {
+                                menuElementProperties.map((menuItem,index)=>{
+
+                                    return (
+                                        &lt;div  className="menu-item_container" key={index * Math.random() * Math.random() + (0.6782 * Math.random())}>
+                                            {book.shelf === menuItem.value ? &lt;input
+                                                    type="radio"
+                                                    id={menuItem.id}
+                                                    name="shelf"
+                                                    value={menuItem.value}
+                                                    defaultChecked
+                                                    className="menu-item_input"
+                                                    key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
+                                                /> :
+                                                &lt;input
+                                                    type="radio"
+                                                    id={menuItem.id}
+                                                    name="shelf"
+                                                    value={menuItem.value}
+                                                    className="menu-item_input"
+                                                    key={index * Math.random() * Math.random() + (0.6782 * Math.random())}
+                                                />}
+                                            &lt;label
+                                                htmlFor={menuItem.id}
+                                                className="menu-item_label"
+                                            >
+                                                {menuItem.text}
+                                            &lt;/label>
+                                        &lt;/div>
+                                    )
+                                })
+                            }
+                        &lt;/ul>
+                    &lt;/div>
+                &lt;/div>}
+            &lt;/div>
+
+        )
+    }
+}
+
+export default MainEditButton;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="BookDisplayMainContainer.html">BookDisplayMainContainer</a></li><li><a href="ContentSectionBookDisplayContainer.html">ContentSectionBookDisplayContainer</a></li><li><a href="ContentSectionContainer.html">ContentSectionContainer</a></li><li><a href="MainBookComponent.html">MainBookComponent</a></li><li><a href="MainEditButton.html">MainEditButton</a></li><li><a href="MainViewContentContainer.html">MainViewContentContainer</a></li><li><a href="MainViewNavbarComponent.html">MainViewNavbarComponent</a></li><li><a href="MainViewSearchButtonComponent.html">MainViewSearchButtonComponent</a></li><li><a href="MyReadsMainViewContainer.html">MyReadsMainViewContainer</a></li><li><a href="MyReadsSearchViewContainer.html">MyReadsSearchViewContainer</a></li><li><a href="SearchViewContentContainer.html">SearchViewContentContainer</a></li><li><a href="SearchViewSearchbarComponent.html">SearchViewSearchbarComponent</a></li><li><a href="SelectionPanelItemComponent.html">SelectionPanelItemComponent</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Oct 06 2020 23:38:38 GMT+0700 (Indochina Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

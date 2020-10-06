@@ -206,7 +206,7 @@
 
 
 <div class="description">
-    <p>componentDidMount calls getBooks after initial mount</p>
+    <p>componentDidMount calls getBooks after initial mount which populates screen with books.</p>
 </div>
 
 
@@ -250,7 +250,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line42">line 42</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -338,7 +338,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line50">line 50</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -382,7 +382,7 @@
 
 
 <div class="description">
-    <p>Highlights selected book from book selection pane with a pink border</p>
+    <p>Highlights selected book from book selection pane with a pink border when clicked on</p>
 </div>
 
 
@@ -498,7 +498,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line108">line 108</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -658,7 +658,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line133">line 133</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line132">line 132</a>
     </li></ul></dd>
     
 
@@ -795,7 +795,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line179">line 179</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line200">line 200</a>
     </li></ul></dd>
     
 
@@ -831,7 +831,7 @@
     
 
     
-    <h4 class="name" id="handleShelfChange"><span class="type-signature"></span>handleShelfChange<span class="signature">(bookId, shelfId)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="handleShelfChange"><span class="type-signature">(async) </span>handleShelfChange<span class="signature">(bookId, shelfId)</span><span class="type-signature"></span></h4>
     
 
     
@@ -955,7 +955,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line158">line 158</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line157">line 157</a>
     </li></ul></dd>
     
 
@@ -1043,7 +1043,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line232">line 232</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line266">line 266</a>
     </li></ul></dd>
     
 
@@ -1084,6 +1084,161 @@
     <dd>
         
 <span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setStateSync"><span class="type-signature"></span>setStateSync<span class="signature">(stateToUpdate)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Helper function that sets state sync instead of async</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stateToUpdate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>the state to be updated</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line178">line 178</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
 
 
     </dd>
@@ -1153,7 +1308,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line66">line 66</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line80">line 80</a>
     </li></ul></dd>
     
 
@@ -1206,6 +1361,161 @@
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="updateState"><span class="type-signature">(async) </span>updateState<span class="signature">(stateToUpdate)</span><span class="type-signature"> &rarr; {Promise.&lt;void>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>updates state sync instead of async</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>stateToUpdate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>state to be updated</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line190">line 190</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;void></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -1221,13 +1531,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="MyReadsMainViewContainer.html">MyReadsMainViewContainer</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="BookDisplayMainContainer.html">BookDisplayMainContainer</a></li><li><a href="ContentSectionBookDisplayContainer.html">ContentSectionBookDisplayContainer</a></li><li><a href="ContentSectionContainer.html">ContentSectionContainer</a></li><li><a href="MainBookComponent.html">MainBookComponent</a></li><li><a href="MainEditButton.html">MainEditButton</a></li><li><a href="MainViewContentContainer.html">MainViewContentContainer</a></li><li><a href="MainViewNavbarComponent.html">MainViewNavbarComponent</a></li><li><a href="MainViewSearchButtonComponent.html">MainViewSearchButtonComponent</a></li><li><a href="MyReadsMainViewContainer.html">MyReadsMainViewContainer</a></li><li><a href="MyReadsSearchViewContainer.html">MyReadsSearchViewContainer</a></li><li><a href="SearchViewContentContainer.html">SearchViewContentContainer</a></li><li><a href="SearchViewSearchbarComponent.html">SearchViewSearchbarComponent</a></li><li><a href="SelectionPanelItemComponent.html">SelectionPanelItemComponent</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Fri Oct 02 2020 14:18:14 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Oct 06 2020 23:38:38 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

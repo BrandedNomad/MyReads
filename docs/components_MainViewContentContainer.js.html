@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/MyReadsMainViewContainer.js</title>
+    <title>JSDoc: Source: components/MainViewContentContainer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/MyReadsMainViewContainer.js</h1>
+    <h1 class="page-title">Source: components/MainViewContentContainer.js</h1>
 
     
 
@@ -28,46 +28,55 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React,{Component} from 'react';
 
-import MainViewNavbarComponent from "./MainViewNavbarComponent";
-import MainViewContentContainer from "./MainViewContentContainer";
-import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
+import ContentSectionContainer from "./ContentSectionContainer";
 
 /**
- *
- * @description Represents the MainView page
- * @class MyReadsMainViewContainer
+ * @description Represents the container for the content-sections in the main view
+ * @class
  */
-class MyReadsMainViewContainer extends Component {
+class MainViewContentContainer extends Component {
 
     /**
-     * @description Renders the MyReadsMainViewContainer
+     * @description Renders the MainViewContentContainer
      * @method
      * @returns {JSX.Element} component
      */
-    render() {
+    render(){
 
         const {
             bookShelf,
             handleBookSelection,
-            handleShelfChange,
-        } = this.props
+            handleShelfChange
+        }= this.props;
+
+        const containers = [
+            ['Currently Reading','right','currentlyReading'],
+            ['Want to Read','left', 'wantToRead'],
+            ['Have Read','right','read']
+        ]
+
 
         return (
-            &lt;div>
-                &lt;MainViewNavbarComponent/>
-                &lt;MainViewContentContainer
-                    bookShelf={bookShelf}
-                    handleBookSelection={handleBookSelection}
-                    handleShelfChange={handleShelfChange}
-
-                />
-                &lt;MainViewSearchButtonComponent/>
+            &lt;div className="main-view-content-container">
+                &lt;ul className="main-view-content-container_ul">
+                    {containers.map((container,i)=>{
+                        return (&lt;ContentSectionContainer
+                            title={container[0]}
+                            flow={container[1]}
+                            books={bookShelf[i]}
+                            handleBookSelection={handleBookSelection}
+                            shelfId={container[2]}
+                            handleShelfChange={handleShelfChange}
+                            key={container[2]}
+                        />)
+                    })}
+                &lt;/ul>
             &lt;/div>
         )
     }
 }
 
-export default MyReadsMainViewContainer;</code></pre>
+export default MainViewContentContainer;</code></pre>
         </article>
     </section>
 

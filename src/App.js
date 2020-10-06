@@ -169,13 +169,24 @@ class App extends Component {
 
     }
 
+    /**
+     * @description Helper function that sets state sync instead of async
+     * @method
+     * @param {object} stateToUpdate -the state to be updated
+     * @returns {Promise}
+     */
     setStateSync(stateToUpdate){
         return new Promise((resolve)=>{
             this.setState(stateToUpdate,()=>{resolve()})
         })
     }
 
-
+    /**
+     * @description updates state sync instead of async
+     * @method
+     * @param {object} stateToUpdate -state to be updated
+     * @returns {Promise<void>}
+     */
     async updateState(stateToUpdate){
             await this.setStateSync(stateToUpdate)
     }

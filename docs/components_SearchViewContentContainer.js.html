@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/MyReadsMainViewContainer.js</title>
+    <title>JSDoc: Source: components/SearchViewContentContainer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/MyReadsMainViewContainer.js</h1>
+    <h1 class="page-title">Source: components/SearchViewContentContainer.js</h1>
 
     
 
@@ -27,47 +27,39 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React,{Component} from 'react';
-
-import MainViewNavbarComponent from "./MainViewNavbarComponent";
-import MainViewContentContainer from "./MainViewContentContainer";
-import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
+import ContentSectionContainer from "./ContentSectionContainer";
 
 /**
- *
- * @description Represents the MainView page
- * @class MyReadsMainViewContainer
+ * @description Represents the container for content on the Search-View page
+ * @class
  */
-class MyReadsMainViewContainer extends Component {
+class SearchViewContentContainer extends Component {
 
     /**
-     * @description Renders the MyReadsMainViewContainer
+     * @description Renders the SearchViewContentContainer
      * @method
      * @returns {JSX.Element} component
      */
-    render() {
+    render(){
 
-        const {
-            bookShelf,
-            handleBookSelection,
-            handleShelfChange,
-        } = this.props
+        const {handleBookSelection,handleShelfChange,bookShelf} = this.props
 
-        return (
-            &lt;div>
-                &lt;MainViewNavbarComponent/>
-                &lt;MainViewContentContainer
-                    bookShelf={bookShelf}
+        return(
+            &lt;div className="search-view-content-container">
+                &lt;ContentSectionContainer
+                    title="Search Results"
+                    flow="right"
+                    books={bookShelf}
                     handleBookSelection={handleBookSelection}
+                    shelfId="searchResults"
                     handleShelfChange={handleShelfChange}
-
                 />
-                &lt;MainViewSearchButtonComponent/>
             &lt;/div>
         )
     }
 }
 
-export default MyReadsMainViewContainer;</code></pre>
+export default SearchViewContentContainer</code></pre>
         </article>
     </section>
 

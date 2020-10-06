@@ -32,7 +32,7 @@ import {Route} from 'react-router-dom';
 
 import MyReadsMainViewContainer from "./components/MyReadsMainViewContainer";
 import MyReadsSearchViewContainer from "./components/MyReadsSearchViewContainer";
-import {get,getAll,update,search} from './utils/BooksAPI'
+import {getAll,update,search} from './utils/BooksAPI'
 
 /**
  *
@@ -51,7 +51,7 @@ class App extends Component {
             booksIdList:[],
             searchValue:"",
             searchResults:[],
-            bookShelf:[]
+            bookShelf:[],
 
         }
 
@@ -61,10 +61,23 @@ class App extends Component {
         this.handleShelfChange = this.handleShelfChange.bind(this)
         this.handleSearchOnChange = this.handleSearchOnChange.bind(this)
         this.handleSearchBookSelection = this.handleSearchBookSelection.bind(this)
+        this.updateState = this.updateState.bind(this)
+        this.setStateSync = this.setStateSync.bind(this)
+
+
+    }
+
+    static getDerivedStateFromProps(nextState,prevState){
+        if(nextState.searchResults !== undefined &amp;&amp; nextState.searchResults.length === 0){
+            return {
+                searchResults:nextState.searchResults
+            }
+        }
+        return null
     }
 
     /**
-     * @description componentDidMount calls getBooks after initial mount
+     * @description componentDidMount calls getBooks after initial mount which populates screen with books.
      * @method
      */
     componentDidMount(){
@@ -78,12 +91,13 @@ class App extends Component {
     getBooks(){
         try{
             getAll()
-                .then((results)=>{
-                    this.setState({booksAll:results})
+                .then(async (results)=>{
+                    await this.setState({booksAll:results})
                 })
         }catch(e){
             console.log(e)
         }
+
     }
 
     /**
@@ -92,43 +106,28 @@ class App extends Component {
      * @returns {Array} books sorted into shelves
      */
     shelveBooks(){
-        const reading = this.state.booksAll.filter((book)=>{
-            return book.shelf === 'currentlyReading'
+
+        let read = [];
+        let reading = [];
+        let wantToRead = [];
+
+        this.state.booksAll.forEach((book)=>{
+            if(book.shelf === "currentlyReading"){
+                reading.push(book)
+            }else if(book.shelf === "wantToRead"){
+                wantToRead.push(book)
+            }else if(book.shelf === "read"){
+                read.push(book)
+            }else{
+                //do nothing
+            }
         })
 
-        const wantToRead = this.state.booksAll.filter((book)=>{
-            return book.shelf === 'wantToRead'
-        })
-
-        const read = this.state.booksAll.filter((book)=>{
-            return book.shelf === 'read'
-        })
-
-        const bookShelf = [reading, wantToRead, read]
-
-        // const readingList = reading.map((book)=>{
-        //     return book.id
-        // })
-        //
-        // const wantToReadList = wantToRead.map((book)=>{
-        //     return book.id
-        // })
-        //
-        // const readList = read.map((book)=>{
-        //     return book.id
-        // })
-        //
-        // const booksIdList = {
-        //     currentlyReading:readingList,
-        //     wantToRead:wantToReadList,
-        //     read:readList
-        // }
-
-        return bookShelf;
+        return [reading, wantToRead, read];
     }
 
     /**
-     * @description Highlights selected book from book selection pane with a pink border
+     * @description Highlights selected book from book selection pane with a pink border when clicked on
      * @method
      * @param {string} id - the id of the book
      * @param {string} shelf - the book's current shelf
@@ -173,9 +172,9 @@ class App extends Component {
 
         this.setState({booksAll:updatedlist})
 
-        console.log(this.state.booksIdList)
 
     }
+
 
     /**
      * @description Moves books from one shelf to another, by updating the API and retrieving a fresh list of books with updated shelf property
@@ -183,21 +182,43 @@ class App extends Component {
      * @param {string} bookId - the book's id
      * @param {string} shelfId - the shelf to which the book will be moved
      */
-    handleShelfChange(bookId,shelfId){
-
+    async handleShelfChange(bookId,shelfId){
         //call to BooksAPI to update shelf property
         try{
-            update(bookId,shelfId)
-                .then((results)=>{
-                    this.setState({booksIdList:results})
-                })
+            let results = await update(bookId,shelfId)
+
+            this.setState({booksIdLIst:results},()=>{
+                this.getBooks()
+            })
+
         }catch(error){
             console.log(error)
         }
 
-        //retrieves fresh list of books with updated properties
-        this.getBooks()
     }
+
+    /**
+     * @description Helper function that sets state sync instead of async
+     * @method
+     * @param {object} stateToUpdate -the state to be updated
+     * @returns {Promise}
+     */
+    setStateSync(stateToUpdate){
+        return new Promise((resolve)=>{
+            this.setState(stateToUpdate,()=>{resolve()})
+        })
+    }
+
+    /**
+     * @description updates state sync instead of async
+     * @method
+     * @param {object} stateToUpdate -state to be updated
+     * @returns {Promise&lt;void>}
+     */
+    async updateState(stateToUpdate){
+            await this.setStateSync(stateToUpdate)
+    }
+
 
     /**
      * @description Updates the searchResults state and controls what is displayed in the search field
@@ -205,16 +226,20 @@ class App extends Component {
      * @param {Object} event
      */
     handleSearchOnChange(event){
+        //Sets value to display in Search bar
+        this.updateState({searchValue:event.target.value})
 
-        //sets the value for the form to the value of query
-        if(event.target.value !== undefined || "" ){
-            this.setState({searchValue:event.target.value})
 
-            //searches API for books related to the query
+        if(event.target.value === "" || event.target.value === undefined){
+
+            this.updateState({searchResults:[]}) //clears the display when the searchbar is empty
+
+        }else{
+
             try{
+                //searches API for books related to the query
                 const searchBooks = async ()=>{
-                    let books = await search(event.target.value);
-                    return books
+                    return await search(event.target.value);
                 }
 
                 let data = searchBooks()
@@ -223,34 +248,43 @@ class App extends Component {
 
                     //updates the search results shelf property so that is current shelf
                     //is displayed in the drop down menu.
-                    const updatedResults = results.map((book)=>{
+                    if(!results.error &amp;&amp; results !== ""){
 
-                        this.state.booksAll.forEach((shelvedBook)=>{
-                            if(shelvedBook.id === book.id){  //book on shelf?
-                                book.shelf = shelvedBook.shelf //set its shelf
+                        const updatedResults = results.map((book)=>{
+
+                            this.state.booksAll.forEach((shelvedBook)=>{
+
+                                if(shelvedBook.id === book.id){  //book on shelf?
+                                    book.shelf = shelvedBook.shelf //set its shelf
+                                }
+
+                            })
+                            if(book.shelf === undefined){
+                                book.shelf = 'none'
                             }
+                            return book
                         })
+                        //sets the search result state
+                        this.updateState({searchResults:updatedResults})
+                    } else {
+                        this.updateState({searchResults:[]})
+                    }
 
-                        if(book.shelf === undefined){
-                            book.shelf = 'none'
-                        }
-
-                        return book
-
-                    })
-
-                    //sets the search result state
-                    this.setState({searchResults:updatedResults})
+                }).catch((error)=>{
+                    console.log(error)
                 })
 
             }catch(error){
                 console.log(error)
-
+                this.updateState({searchResults:[]})
             }
-
         }
 
+
+
     }
+
+
 
     /**
      * @description Renders the App Component
@@ -283,6 +317,7 @@ class App extends Component {
                                 handleShelfChange={this.handleShelfChange}
                                 handleSearchOnChange={this.handleSearchOnChange}
                                 searchValue={this.state.searchValue}
+                                getBooks={this.getBooks}
 
                             />)
                     }}
@@ -290,7 +325,6 @@ class App extends Component {
             &lt;/div>
         );
       }
-
 }
 
 export default App;
@@ -304,13 +338,13 @@ export default App;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="MyReadsMainViewContainer.html">MyReadsMainViewContainer</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="App.html">App</a></li><li><a href="BookDisplayMainContainer.html">BookDisplayMainContainer</a></li><li><a href="ContentSectionBookDisplayContainer.html">ContentSectionBookDisplayContainer</a></li><li><a href="ContentSectionContainer.html">ContentSectionContainer</a></li><li><a href="MainBookComponent.html">MainBookComponent</a></li><li><a href="MainEditButton.html">MainEditButton</a></li><li><a href="MainViewContentContainer.html">MainViewContentContainer</a></li><li><a href="MainViewNavbarComponent.html">MainViewNavbarComponent</a></li><li><a href="MainViewSearchButtonComponent.html">MainViewSearchButtonComponent</a></li><li><a href="MyReadsMainViewContainer.html">MyReadsMainViewContainer</a></li><li><a href="MyReadsSearchViewContainer.html">MyReadsSearchViewContainer</a></li><li><a href="SearchViewContentContainer.html">SearchViewContentContainer</a></li><li><a href="SearchViewSearchbarComponent.html">SearchViewSearchbarComponent</a></li><li><a href="SelectionPanelItemComponent.html">SelectionPanelItemComponent</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Fri Oct 02 2020 14:18:14 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Tue Oct 06 2020 23:38:38 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

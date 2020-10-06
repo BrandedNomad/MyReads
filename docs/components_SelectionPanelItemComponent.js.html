@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/MyReadsMainViewContainer.js</title>
+    <title>JSDoc: Source: components/SelectionPanelItemComponent.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/MyReadsMainViewContainer.js</h1>
+    <h1 class="page-title">Source: components/SelectionPanelItemComponent.js</h1>
 
     
 
@@ -28,46 +28,70 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React,{Component} from 'react';
 
-import MainViewNavbarComponent from "./MainViewNavbarComponent";
-import MainViewContentContainer from "./MainViewContentContainer";
-import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
 
 /**
- *
- * @description Represents the MainView page
- * @class MyReadsMainViewContainer
+ * @description Represents an individual book in the book selection-panel
+ * @class
  */
-class MyReadsMainViewContainer extends Component {
+class SelectionPanelItemComponent extends Component {
 
     /**
-     * @description Renders the MyReadsMainViewContainer
+     * @description Initializes state and binds methods to component
+     * @constructor
+     * @param {object} props
+     */
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+
+    /**
+     * @description High-lights the selected book when clicked on
+     * @method
+     */
+    handleClick(){
+        this.props.handleBookSelection(this.props.book.id,this.props.book.shelf)
+    }
+
+    /**
+     * @description Renders SelectionPanelItemComponent
      * @method
      * @returns {JSX.Element} component
      */
-    render() {
+    render(){
 
         const {
-            bookShelf,
-            handleBookSelection,
-            handleShelfChange,
-        } = this.props
+            book,
+            itemId,
+        } = this.props;
 
-        return (
-            &lt;div>
-                &lt;MainViewNavbarComponent/>
-                &lt;MainViewContentContainer
-                    bookShelf={bookShelf}
-                    handleBookSelection={handleBookSelection}
-                    handleShelfChange={handleShelfChange}
+        let displayTitle = "";
 
-                />
-                &lt;MainViewSearchButtonComponent/>
+        //Shortens the length of book titles that are longer than 50 characters, so they can fit on the card
+        if(book.hasOwnProperty('title')){
+            displayTitle = book.title.length &lt; 50 ? book.title : book.title.slice(0,40) + "..."
+        }
+
+        return(
+            &lt;div id={itemId} className={"item-display"}>
+                &lt;div className={book.isSelected ? "selection-list-item-frame-selected": "selection-list-item-frame"}>
+                    &lt;div className="selection-list-item-card" onClick={this.handleClick}>
+                        &lt;div className="selection-list-item-cover">
+                            {&lt;img src={book.hasOwnProperty("imageLinks")? book.imageLinks.thumbnail:"./img/no-cover.jpg"} alt={book.title}/>}
+                        &lt;/div>
+                        &lt;div className="selection-list-item-description">
+                            &lt;p className="selection-list-item-description_title">{displayTitle} &lt;/p>
+                            &lt;p className="selection-list-item-description_author">{book.hasOwnProperty('authors') ? book.authors[0] : ""}&lt;/p>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
             &lt;/div>
         )
     }
 }
 
-export default MyReadsMainViewContainer;</code></pre>
+export default SelectionPanelItemComponent;</code></pre>
         </article>
     </section>
 

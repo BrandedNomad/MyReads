@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/MyReadsMainViewContainer.js</title>
+    <title>JSDoc: Source: components/SearchViewSearchbarComponent.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/MyReadsMainViewContainer.js</h1>
+    <h1 class="page-title">Source: components/SearchViewSearchbarComponent.js</h1>
 
     
 
@@ -26,48 +26,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React,{Component} from 'react';
-
-import MainViewNavbarComponent from "./MainViewNavbarComponent";
-import MainViewContentContainer from "./MainViewContentContainer";
-import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 /**
- *
- * @description Represents the MainView page
- * @class MyReadsMainViewContainer
+ * @description Represents the search-bar on the search-view page
+ * @class
  */
-class MyReadsMainViewContainer extends Component {
+class SearchViewSearchbarComponent extends Component {
 
     /**
-     * @description Renders the MyReadsMainViewContainer
+     * @description Renders the SearchViewSearchbarComponent
      * @method
      * @returns {JSX.Element} component
      */
     render() {
 
-        const {
-            bookShelf,
-            handleBookSelection,
-            handleShelfChange,
-        } = this.props
+        const {handleSearchOnChange, searchValue} = this.props;
 
         return (
-            &lt;div>
-                &lt;MainViewNavbarComponent/>
-                &lt;MainViewContentContainer
-                    bookShelf={bookShelf}
-                    handleBookSelection={handleBookSelection}
-                    handleShelfChange={handleShelfChange}
+            &lt;div className="search-bar">
+                &lt;div className="search-bar_img">
+                    &lt;Link
+                        className="navigate-to-home"
+                        to="/"
+                    >
+                        &lt;img src='img/back-button.png' alt='back-button'/>
+                    &lt;/Link>
 
-                />
-                &lt;MainViewSearchButtonComponent/>
+                &lt;/div>
+                &lt;div className="search-bar_input">
+                    &lt;input type='text' placeholder='Search by Title or Author' value={searchValue} onChange={(e)=>{handleSearchOnChange(e)}}/>
+                &lt;/div>
             &lt;/div>
         )
     }
 }
 
-export default MyReadsMainViewContainer;</code></pre>
+export default SearchViewSearchbarComponent;</code></pre>
         </article>
     </section>
 

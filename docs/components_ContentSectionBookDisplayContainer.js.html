@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/MyReadsMainViewContainer.js</title>
+    <title>JSDoc: Source: components/ContentSectionBookDisplayContainer.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/MyReadsMainViewContainer.js</h1>
+    <h1 class="page-title">Source: components/ContentSectionBookDisplayContainer.js</h1>
 
     
 
@@ -26,48 +26,71 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React,{Component} from 'react';
-
-import MainViewNavbarComponent from "./MainViewNavbarComponent";
-import MainViewContentContainer from "./MainViewContentContainer";
-import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
+            <pre class="prettyprint source linenums"><code>import React, {Component} from 'react';
+import BookDisplaySelectionPanelContainer from "./BookDisplaySelectionPanelContainer";
+import BookDisplayMainContainer from "./BookDisplayMainContainer";
 
 /**
- *
- * @description Represents the MainView page
- * @class MyReadsMainViewContainer
+ * @description Represents the book display of the Content Section
+ * @class
  */
-class MyReadsMainViewContainer extends Component {
+class ContentSectionBookDisplayContainer extends Component {
+
 
     /**
-     * @description Renders the MyReadsMainViewContainer
-     * @method
-     * @returns {JSX.Element} component
+     * @description Renders the C
+     * @returns {JSX.Element}
      */
-    render() {
+    render(){
 
-        const {
-            bookShelf,
+        let {
+            flow,
+            books,
             handleBookSelection,
+            shelfId,
             handleShelfChange,
-        } = this.props
+            handleMenuMethods,
+        } = this.props;
+
+        let isSelected = books.every((book)=>{
+            return book.isSelected === false || book.isSelected === undefined;
+        })
+
+
+        if(isSelected){
+            books = books.map((book,i)=>{
+                if(i === 0){
+                    book.isSelected = true;
+                }
+                return book;
+            })
+        }
+
+        let [mainBook] = books.filter((book)=>{
+            return book.isSelected === true;
+        })
+
 
         return (
-            &lt;div>
-                &lt;MainViewNavbarComponent/>
-                &lt;MainViewContentContainer
-                    bookShelf={bookShelf}
+            &lt;div className={'book-display-container book-display-container-' + flow}>
+                &lt;BookDisplaySelectionPanelContainer
+                    books={books}
                     handleBookSelection={handleBookSelection}
-                    handleShelfChange={handleShelfChange}
-
+                    flow={flow}
                 />
-                &lt;MainViewSearchButtonComponent/>
+                &lt;BookDisplayMainContainer
+                    book={mainBook}
+                    shelfId={shelfId}
+                    handleShelfChange={handleShelfChange}
+                    flow={flow}
+                    handleMenuMethods={handleMenuMethods}
+            />
             &lt;/div>
         )
     }
 }
 
-export default MyReadsMainViewContainer;</code></pre>
+export default ContentSectionBookDisplayContainer;</code></pre>
         </article>
     </section>
 

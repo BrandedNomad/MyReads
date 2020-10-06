@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/MyReadsMainViewContainer.js</title>
+    <title>JSDoc: Source: components/MainViewNavbarComponent.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/MyReadsMainViewContainer.js</h1>
+    <h1 class="page-title">Source: components/MainViewNavbarComponent.js</h1>
 
     
 
@@ -28,46 +28,26 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React,{Component} from 'react';
 
-import MainViewNavbarComponent from "./MainViewNavbarComponent";
-import MainViewContentContainer from "./MainViewContentContainer";
-import MainViewSearchButtonComponent from "./MainViewSearchButtonComponent";
-
 /**
- *
- * @description Represents the MainView page
- * @class MyReadsMainViewContainer
+ * @description Represents the Navigation bar in the main view
+ * @class
  */
-class MyReadsMainViewContainer extends Component {
+class MainViewNavbarComponent extends Component {
 
     /**
-     * @description Renders the MyReadsMainViewContainer
-     * @method
+     * @description Renders MainViewNavbarComponent
      * @returns {JSX.Element} component
      */
-    render() {
-
-        const {
-            bookShelf,
-            handleBookSelection,
-            handleShelfChange,
-        } = this.props
-
+    render(){
         return (
-            &lt;div>
-                &lt;MainViewNavbarComponent/>
-                &lt;MainViewContentContainer
-                    bookShelf={bookShelf}
-                    handleBookSelection={handleBookSelection}
-                    handleShelfChange={handleShelfChange}
-
-                />
-                &lt;MainViewSearchButtonComponent/>
+            &lt;div className="navbar">
+                &lt;span className="navbar_title">MyReads&lt;/span>
             &lt;/div>
         )
     }
 }
 
-export default MyReadsMainViewContainer;</code></pre>
+export default MainViewNavbarComponent;</code></pre>
         </article>
     </section>
 
