@@ -76,19 +76,21 @@ class App extends Component {
      * @returns {Array} books sorted into shelves
      */
     shelveBooks(){
-        //Currently Reading shelf
-        const reading = this.state.booksAll.filter((book)=>{
-            return book.shelf === 'currentlyReading'
-        })
 
-        //Want to Read shelf
-        const wantToRead = this.state.booksAll.filter((book)=>{
-            return book.shelf === 'wantToRead'
-        })
+        let read = [];
+        let reading = [];
+        let wantToRead = [];
 
-        //Have Read shelf
-        const read = this.state.booksAll.filter((book)=>{
-            return book.shelf === 'read'
+        this.state.booksAll.forEach((book)=>{
+            if(book.shelf === "currentlyReading"){
+                reading.push(book)
+            }else if(book.shelf === "wantToRead"){
+                wantToRead.push(book)
+            }else if(book.shelf === "read"){
+                read.push(book)
+            }else{
+                //do nothing
+            }
         })
 
         return [reading, wantToRead, read];
